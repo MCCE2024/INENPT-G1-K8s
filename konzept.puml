@@ -1,0 +1,149 @@
+@startuml
+skinparam linetype ortho
+ 
+' Define custom styles for different components
+skinparam rectangle {
+    BackgroundColor<<cloud>> #E6F7FF
+    BorderColor<<cloud>> #0078D7
+    BackgroundColor<<k8s>> #ECF9EC
+    BorderColor<<k8s>> #28A745
+    BackgroundColor<<namespace>> #FFFFFF
+    BorderColor<<namespace>> #6C757D
+    BorderStyle<<namespace>> dashed
+    BackgroundColor<<service>> #E8F4FD
+    BorderColor<<service>> #0366D6
+    BackgroundColor<<component>> #FFF5E6
+    BorderColor<<component>> #F90
+    BackgroundColor<<security>> #F9FFE5
+    BorderColor<<security>> #38761D
+    BackgroundColor<<oauth>> #F0F8FF
+    BorderColor<<oauth>> #24292E
+}
+ 
+' Cloud Provider
+rectangle "Exoscale Cloud Provider" as CLOUD <<cloud>> {
+    ' Kubernetes Cluster
+    rectangle "Managed Kubernetes Cluster (SKS)" as K8S <<k8s>> {
+        ' Namespaces
+        rectangle "Production Namespace (mcce-g1-prod)" as PROD_NS <<namespace>> {
+            rectangle "Consumer Service (Frontend + Node.js)" as PROD_CONSUMER <<service>>
+            rectangle "API Service" as PROD_API <<service>>
+            rectangle "Producer CronJob\n(Python)" as PROD_PRODUCER <<service>>
+        }
+ 
+        rectangle "Test Namespace (mcce-g1-test)" as TEST_NS <<namespace>> {
+            rectangle "Consumer Service (Frontend + Node.js)" as TEST_CONSUMER <<service>>
+            rectangle "API Service" as TEST_API <<service>>
+            rectangle "Producer CronJob\n(Python)" as TEST_PRODUCER <<service>>
+        }
+ 
+        ' K8s Infrastructure Components
+        rectangle "Ingress Controller with TLS" as INGRESS <<security>>
+        rectangle "Network Policies" as NETPOL <<security>>
+    }
+ 
+    ' Managed Postgres Service
+    rectangle "Exoscale Managed PostgreSQL" as PG_SVC <<cloud>> {
+        rectangle "Central Tenant Database" as CENTRAL_DB
+        rectangle "Tenant Schemas (prod/test)" as TENANT_SCHEMAS
+    }
+ 
+    ' GitOps & IaC
+    rectangle "GitOps & IaC" as GITOPS <<component>> {
+        rectangle "ArgoCD" as ARGOCD
+        rectangle "Helm Charts Repository" as HELM
+        rectangle "OpenTofu / Terraform" as TOFU
+    }
+ 
+    ' Exoscale Resources
+    rectangle "Exoscale Resources" as EXO_RES <<component>> {
+        rectangle "exoscale_sks_cluster" as EXO_SKS
+        rectangle "exoscale_security_group" as EXO_SG
+        rectangle "exoscale_private_network" as EXO_NET
+        rectangle "exoscale_postgresql_service" as EXO_PG
+    }
+ 
+    ' Container Registry
+    rectangle "Container Registry\n(GitHub Container Registry)" as REGISTRY <<component>>
+ 
+    ' Tenant Onboarding Process
+    rectangle "Tenant Onboarding Process" as TENANT_ONBOARD <<component>> {
+        rectangle "Git Repository" as TENANT_REPO
+        rectangle "Tenant Helm Values" as TENANT_HELM
+        rectangle "GitHub OAuth App Registration" as GH_OAUTH_REG
+    }
+}
+ 
+' External CI/CD
+rectangle "CI/CD Pipeline" as CICD <<component>> {
+    rectangle "GitHub Actions" as GH_ACTIONS
+    rectangle "Build & Test" as CI_BUILD
+    rectangle "Security Scan" as CI_SCAN
+}
+ 
+' GitHub OAuth
+rectangle "GitHub OAuth" as GH_OAUTH <<oauth>> {
+    rectangle "OAuth App" as GH_APP
+    rectangle "User Authentication" as GH_AUTH
+    rectangle "Access Token Validation" as GH_TOKEN_VAL
+}
+ 
+' Service flows - Production
+PROD_PRODUCER --> PROD_API : POST datetime\nto /api/messages (GitHub OAuth)
+PROD_API --> GH_TOKEN_VAL : Validate GitHub\ntoken
+PROD_API --> PG_SVC : INSERT JSON time data\n(tenant_id, prod)
+PROD_CONSUMER --> PROD_API : GET datetime\nto /api/messages (GitHub token)
+ 
+' Service flows - Test
+TEST_PRODUCER --> TEST_API : POST datetime\nto /api/messages (GitHub OAuth)
+TEST_API --> GH_TOKEN_VAL : Validate GitHub\ntoken
+TEST_API --> PG_SVC : INSERT JSON time data\n(tenant_id, test)
+TEST_CONSUMER --> TEST_API : GET datetime\nto /api/messages (GitHub token)
+ 
+' Service flows to storage
+PROD_API --> PG_SVC : Stores/retrieves\nJSON time data per tenant schema
+TEST_API --> PG_SVC : Stores/retrieves\nJSON time data per tenant schema
+ 
+' GitHub OAuth flows
+GH_APP --> GH_AUTH : Redirects for\nuser authentication
+GH_AUTH --> GH_TOKEN_VAL : Issues access tokens
+GH_TOKEN_VAL --> PROD_API : Validates tokens
+GH_TOKEN_VAL --> TEST_API : Validates tokens
+ 
+' CI/CD flows
+GH_ACTIONS --> CI_BUILD
+CI_BUILD --> CI_SCAN
+CI_SCAN --> REGISTRY : Push images
+ 
+' Infrastructure connections
+REGISTRY --> K8S : Pull images
+ARGOCD --> K8S : Deploys & Manages
+INGRESS --> PROD_CONSUMER : Routes traffic
+INGRESS --> TEST_CONSUMER : Routes traffic
+NETPOL --> PROD_NS : Enforces zero-trust\ncommunication
+NETPOL --> TEST_NS : Enforces zero-trust\ncommunication
+ 
+' OpenTofu provisioning
+TOFU --> EXO_SKS : provisions
+TOFU --> EXO_SG : configures
+TOFU --> EXO_NET : configures
+TOFU --> EXO_PG : provisions
+ 
+' ArgoCD and Helm
+ARGOCD --> HELM : Pulls charts
+ 
+' Tenant onboarding connections
+TENANT_REPO --> TENANT_HELM : Stores
+TENANT_HELM --> ARGOCD : Triggers deployment
+GH_OAUTH_REG --> GH_APP : Registers new\nOAuth application
+ 
+' Legend
+rectangle "Legend" as LEGEND {
+    rectangle "Cloud Component" as L_CLOUD <<cloud>>
+    rectangle "Kubernetes Component" as L_K8S <<k8s>>
+    rectangle "Application Service" as L_SVC <<service>>
+    rectangle "Infrastructure Component" as L_COMP <<component>>
+    rectangle "Security Component" as L_SEC <<security>>
+    rectangle "OAuth Component" as L_OAUTH <<oauth>>
+}
+@enduml
