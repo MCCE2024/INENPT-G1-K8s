@@ -77,6 +77,44 @@ resource "exoscale_security_group_rule" "sks_nodeport_range" {
   type              = "INGRESS"
 }
 
+# Internal cluster communication rules
+resource "exoscale_security_group_rule" "sks_internal_tcp" {
+  security_group_id      = exoscale_security_group.sks.id
+  protocol               = "tcp"
+  start_port             = 1
+  end_port               = 65535
+  user_security_group_id = exoscale_security_group.sks.id
+  type                   = "INGRESS"
+}
+
+resource "exoscale_security_group_rule" "sks_internal_udp" {
+  security_group_id      = exoscale_security_group.sks.id
+  protocol               = "udp"
+  start_port             = 1
+  end_port               = 65535
+  user_security_group_id = exoscale_security_group.sks.id
+  type                   = "INGRESS"
+}
+
+# Pod network communication (Calico CNI)
+resource "exoscale_security_group_rule" "sks_pod_network" {
+  security_group_id = exoscale_security_group.sks.id
+  protocol          = "tcp"
+  start_port        = 1
+  end_port          = 65535
+  cidr              = "192.168.0.0/16"
+  type              = "INGRESS"
+}
+
+resource "exoscale_security_group_rule" "sks_pod_network_udp" {
+  security_group_id = exoscale_security_group.sks.id
+  protocol          = "udp"
+  start_port        = 1
+  end_port          = 65535
+  cidr              = "192.168.0.0/16"
+  type              = "INGRESS"
+}
+
 resource "exoscale_security_group_rule" "sks_egress_tcp" {
   security_group_id = exoscale_security_group.sks.id
   protocol          = "tcp"
