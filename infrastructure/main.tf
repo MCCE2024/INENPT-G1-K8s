@@ -180,6 +180,7 @@ resource "exoscale_dbaas" "postgresql" {
   pg {
     version = "15"
     ip_filter = ["0.0.0.0/0"]
+    backup_schedule = "02:00"
   }
 
   timeouts {
