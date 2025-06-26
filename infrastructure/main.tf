@@ -115,6 +115,25 @@ resource "exoscale_security_group_rule" "sks_pod_network_udp" {
   type              = "INGRESS"
 }
 
+# Service network communication (ClusterIP services)
+resource "exoscale_security_group_rule" "sks_service_network" {
+  security_group_id = exoscale_security_group.sks.id
+  protocol          = "tcp"
+  start_port        = 1
+  end_port          = 65535
+  cidr              = "10.96.0.0/12"
+  type              = "INGRESS"
+}
+
+resource "exoscale_security_group_rule" "sks_service_network_udp" {
+  security_group_id = exoscale_security_group.sks.id
+  protocol          = "udp"
+  start_port        = 1
+  end_port          = 65535
+  cidr              = "10.96.0.0/12"
+  type              = "INGRESS"
+}
+
 resource "exoscale_security_group_rule" "sks_egress_tcp" {
   security_group_id = exoscale_security_group.sks.id
   protocol          = "tcp"
