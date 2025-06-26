@@ -133,6 +133,25 @@ resource "exoscale_security_group_rule" "sks_egress_udp" {
   type              = "EGRESS"
 }
 
+# DNS resolution rules (essential for resolving external hostnames)
+resource "exoscale_security_group_rule" "sks_dns_tcp" {
+  security_group_id = exoscale_security_group.sks.id
+  protocol          = "tcp"
+  start_port        = 53
+  end_port          = 53
+  cidr              = "0.0.0.0/0"
+  type              = "EGRESS"
+}
+
+resource "exoscale_security_group_rule" "sks_dns_udp" {
+  security_group_id = exoscale_security_group.sks.id
+  protocol          = "udp"
+  start_port        = 53
+  end_port          = 53
+  cidr              = "0.0.0.0/0"
+  type              = "EGRESS"
+}
+
 # SKS Kubernetes Cluster
 resource "exoscale_sks_cluster" "k8s_cluster" {
   name        = "${var.project_name}-sks-cluster"
