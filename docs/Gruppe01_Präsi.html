@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Power Rangers DevOps - Team Gruppe 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            font-size: 14px;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+        }
+        .slideshow-container {
+            max-width: 1100px;
+            margin: 30px auto 0 auto;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #e94560;
+        }
+        .slide {
+            display: none;
+            padding: 40px 40px 80px 40px;
+            min-height: 600px;
+            animation: fadein 0.5s;
+        }
+        .slide.active {
+            display: block;
+        }
+        @keyframes fadein {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            background: linear-gradient(135deg, #e94560, #f39c12, #f1c40f, #2ecc71, #3498db);
+            color: #ffffff;
+            padding: 28px 20px 20px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 4px 24px 0 rgba(233, 69, 96, 0.3);
+            border-bottom: 3px solid #ffffff;
+        }
+        .header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 8px #000;
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e94560; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e94560; }
+        }
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .meta-info {
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 0.95em;
+            color: #ffffff;
+            margin-top: 10px;
+            border: 1px solid #e94560;
+        }
+        .signpost {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .signpost-icon {
+            font-size: 1.7em;
+            color: #666;
+            background: #1a1a2e;
+            border-radius: 50%;
+            padding: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+        .signpost-icon.active {
+            color: #e94560;
+            background: #0f3460;
+            box-shadow: 0 0 20px #e94560;
+            border-color: #e94560;
+            transform: scale(1.1);
+        }
+        .signpost-icon:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+        }
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            color: #e94560;
+            text-align: center;
+            margin: 25px 0 20px;
+            font-size: 1.6em;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 10px auto;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .battle-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 22px;
+            border-radius: 15px;
+            margin: 22px 0;
+            box-shadow: 0 4px 20px 0 rgba(0,0,0,0.3);
+            border: 1px solid #e94560;
+        }
+        .power-rangers-fight {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        .power-rangers-fight h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #e94560;
+            font-family: 'Orbitron', monospace;
+        }
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #1a1a2e;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.95em;
+            color: #fff;
+            border: 1px solid #e94560;
+        }
+        .stats-table th {
+            background: linear-gradient(135deg, #e94560, #f39c12);
+            color: #ffffff;
+            padding: 8px;
+            text-align: left;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.85em;
+        }
+        .stats-table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #333;
+        }
+        .validation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #1a1a2e;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9em;
+            color: #fff;
+            border: 1px solid #e94560;
+        }
+        .validation-table th {
+            background: linear-gradient(135deg, #e94560, #f39c12);
+            color: #ffffff;
+            padding: 10px 8px;
+            text-align: center;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .validation-table td {
+            padding: 8px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .validation-table td:first-child {
+            text-align: left;
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+        }
+        .finale {
+            background: linear-gradient(135deg, #e94560, #f39c12, #f1c40f, #2ecc71, #3498db);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            color: #ffffff;
+            margin: 20px 0;
+            font-weight: 500;
+            border: 2px solid #ffffff;
+            animation: finale-glow 3s ease-in-out infinite alternate;
+        }
+        @keyframes finale-glow {
+            from { box-shadow: 0 0 20px rgba(233, 69, 96, 0.5); }
+            to { box-shadow: 0 0 30px rgba(233, 69, 96, 0.8); }
+        }
+        .finale h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .finale h3 {
+            margin: 25px 0 15px;
+            font-size: 1.2em;
+            font-family: 'Orbitron', monospace;
+        }
+        .footer {
+            background: #1a1a2e;
+            color: #bcaaa4;
+            padding: 22px 10px 18px 10px;
+            text-align: center;
+            font-size: 1.05em;
+            border-radius: 18px 18px 0 0;
+            margin-top: 30px;
+            letter-spacing: 0.2px;
+            box-shadow: 0 -2px 12px 0 rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            border-top: 1px solid #e94560;
+        }
+        .footer i {
+            color: #e94560;
+            margin-right: 6px;
+        }
+        .footer em {
+            color: #2ecc71;
+        }
+        .footer strong {
+            color: #e94560;
+        }
+        .nav-btn {
+            background: linear-gradient(135deg, #e94560, #f39c12);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            padding: 10px 24px;
+            font-size: 1.1em;
+            margin: 0 10px;
+            cursor: pointer;
+            font-family: 'Orbitron', monospace;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .nav-btn:hover {
+            background: linear-gradient(135deg, #f39c12, #e94560);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+        }
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Power Rangers specific animations */
+        .morphin-container {
+            margin: 40px auto 0 auto;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            animation: morphin-spin 3s infinite linear;
+        }
+        .morphin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        .morphin-cell {
+            background: linear-gradient(45deg, #e94560, #f39c12);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            animation: cell-pulse 1.5s infinite alternate;
+        }
+        .morphin-cell.red { background: linear-gradient(45deg, #e94560, #c0392b); }
+        .morphin-cell.blue { background: linear-gradient(45deg, #3498db, #2980b9); }
+        .morphin-cell.green { background: linear-gradient(45deg, #2ecc71, #27ae60); }
+        .morphin-cell.pink { background: linear-gradient(45deg, #e91e63, #c2185b); }
+        .morphin-cell.yellow { background: linear-gradient(45deg, #f1c40f, #f39c12); }
+        
+        @keyframes morphin-spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        @keyframes cell-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        /* Zord Battle Animation */
+        .zord-battle-container {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .megazord {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: megazord-attack 2s infinite;
+        }
+        .zord-head { font-size: 3em; animation: head-bob 1s infinite alternate; }
+        .zord-body { font-size: 2.5em; animation: body-pulse 1.5s infinite alternate; }
+        .zord-arms { font-size: 2em; animation: arms-swing 1.2s infinite alternate; }
+        
+        @keyframes megazord-attack {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+        }
+        @keyframes head-bob {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-5px); }
+        }
+        @keyframes body-pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        @keyframes arms-swing {
+            0% { transform: rotate(-10deg); }
+            100% { transform: rotate(10deg); }
+        }
+        
+        .battle-impact {
+            font-size: 4em;
+            animation: impact-flash 0.5s infinite alternate;
+        }
+        @keyframes impact-flash {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .enemy-monster {
+            font-size: 3em;
+            animation: monster-shake 1s infinite;
+        }
+        @keyframes monster-shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* Rita's Palace */
+        .ritas-palace-container {
+            position: relative;
+            width: 200px;
+            height: 120px;
+            margin: 0 auto 20px auto;
+        }
+        .palace-tower {
+            font-size: 4em;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: palace-glow 2s infinite alternate;
+        }
+        @keyframes palace-glow {
+            0% { filter: brightness(1) hue-rotate(0deg); }
+            100% { filter: brightness(1.3) hue-rotate(30deg); }
+        }
+        
+        .evil-energy {
+            font-size: 2em;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: evil-float 3s infinite ease-in-out;
+        }
+        @keyframes evil-float {
+            0%, 100% { top: 20px; }
+            50% { top: 10px; }
+        }
+        
+        .dark-clouds {
+            font-size: 1.5em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            animation: clouds-move 4s infinite linear;
+        }
+        @keyframes clouds-move {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Victory Animation */
+        .victory-container {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            margin: 0 auto 20px auto;
+        }
+        .power-rangers-victory {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+        .ranger {
+            font-size: 2.5em;
+            animation: ranger-victory 2s infinite;
+        }
+        .ranger.red { animation-delay: 0s; }
+        .ranger.blue { animation-delay: 0.2s; }
+        .ranger.green { animation-delay: 0.4s; }
+        .ranger.pink { animation-delay: 0.6s; }
+        
+        @keyframes ranger-victory {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+        
+        .victory-energy {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em;
+            animation: energy-pulse 1s infinite;
+        }
+        @keyframes energy-pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+        }
+        
+        /* Epilog Animation */
+        .epilog-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px auto;
+        }
+        .morphin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        .morphin-cell {
+            background: linear-gradient(45deg, #e94560, #f39c12);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            animation: cell-pulse 1.5s infinite alternate;
+        }
+        
+        /* Additional Components */
+        .weakness-list, .mission-list, .lessons-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .weakness-item, .mission-item, .lesson-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            border-left: 3px solid #e94560;
+        }
+        .weakness-icon, .mission-icon, .lesson-icon {
+            font-size: 1.5em;
+            color: #e94560;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .skill-item {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        .skill-icon {
+            font-size: 2em;
+            color: #e94560;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .future-missions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .mission-card {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        .mission-card h4 {
+            color: #e94560;
+            margin-bottom: 8px;
+            font-family: 'Orbitron', monospace;
+        }
+        
+        @media (max-width: 900px) {
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .future-missions { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .header, .finale, .battle-section, .footer, .slide { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+
+        <!-- Slide 0: Command Center - Project Overview -->
+        <div class="slide active" id="slide-0">
+            <div class="header">
+                <h1>⚡ Power Rangers DevOps</h1>
+                <div class="subtitle">Kapitel I: Die Berufung  ArgoCD GitOps Projekt</div>
+                <div class="meta-info">
+                    <strong>Team Gruppe 1 - INEN PT</strong><br>
+                    Juni 2025<br>
+                    Projekt: ArgoCD Multi-Service Architecture
+                </div>
+            </div>
+            <div class="signpost">
+                <span class="signpost-icon active" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="Zord Battle">⚔️</span>
+                <span class="signpost-icon" title="Rita's Palace">👹</span>
+                <span class="signpost-icon" title="Victory">🏆</span>
+                <span class="signpost-icon" title="Epilog">🌟</span>
+            </div>
+            <h2 class="section-title">Die Power Rangers & ihre Mission</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 30px;">
+                <div style="background: rgba(233, 69, 96, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #e94560; min-width:220px;flex:1;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <span style="font-size:2em;color:#e94560;">🦸‍♂️</span>
+                        <span>Harald (Red Ranger) - Terraform-Weiser</span>
+                    </div>
+                </div>
+                <div style="background: rgba(233, 30, 99, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #e91e63; min-width:220px;flex:1;">
+                    <div style="display:flex;align-items:center;gap:10px;">🦸‍♀️ <span>Susanne (Pink Ranger) - Security-Expertin</span></div>
+                </div>
+                <div style="background: rgba(46, 204, 113, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #2ecc71; min-width:220px;flex:1;">
+                    <div style="display:flex;align-items:center;gap:10px;">🦸‍♂️ <span>Patrick (Green Ranger) - Der Retter</span></div>
+                </div>
+                <div style="background: rgba(120, 119, 198, 0.12); padding: 15px; border-radius: 12px; border: 2px solid #7877c6; min-width:220px;flex:1;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <span style="font-size:2em;color:#7877c6;">🧑‍🚀</span>
+                        <span>Thomas (Zordon) - Lektor & Mentor</span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin: 30px auto; max-width: 700px;">
+                <h3>Die Mission</h3>
+                <p>Im Command Center wird die Mission beschlossen: Eine moderne GitOps-Infrastruktur mit ArgoCD, erschaffen mit Terraform und geschützt durch 
+                    die Macht der Power Rangers. Die Reise beginnt…</p>
+                <table class="stats-table" style="margin-top:18px;">
+                    <thead>
+                        <tr><th>Bereich</th><th>Technologien</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Frontend</td><td>Consumer Web App (Node.js)</td></tr>
+                        <tr><td>Backend</td><td>API Service (Node.js)</td></tr>
+                        <tr><td>Data Producer</td><td>Python CronJob</td></tr>
+                        <tr><td>Infrastructure</td><td>ArgoCD, Helm, Terraform</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer">
+                <span>🏛️ Command Center - Die Berufung</span>
+            </div>
+        </div>
+
+        <!-- Slide 1: Morphing Sequence - Project Architecture -->
+        <div class="slide" id="slide-1">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon active" title="Zord Battle">⚔️</span>
+                <span class="signpost-icon" title="Rita's Palace">👹</span>
+                <span class="signpost-icon" title="Victory">🏆</span>
+                <span class="signpost-icon" title="Epilog">🌟</span>
+            </div>
+            <div class="morphin-container">
+                <div class="morphin-grid">
+                    <div class="morphin-cell red">⚡</div>
+                    <div class="morphin-cell blue">⚡</div>
+                    <div class="morphin-cell green">⚡</div>
+                    <div class="morphin-cell pink">⚡</div>
+                    <div class="morphin-cell yellow">⚡</div>
+                    <div class="morphin-cell red">⚡</div>
+                    <div class="morphin-cell blue">⚡</div>
+                    <div class="morphin-cell green">⚡</div>
+                    <div class="morphin-cell pink">⚡</div>
+                </div>
+            </div>
+            <h2 class="section-title">Morphing Sequence - Projektarchitektur</h2>
+            <div class="battle-section">
+                <div class="power-rangers-fight">
+                    <h3>⚡ Die Kraft der GitOps-Architektur</h3>
+                    <p>Wie die Power Rangers ihre Kräfte kombinieren, so kombiniert unsere Architektur moderne DevOps-Tools:</p>
+                    <table class="stats-table">
+                        <thead>
+                            <tr><th>Komponente</th><th>Technologie</th><th>Zweck</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>🏗️ Infrastructure</td><td>Terraform</td><td>Infrastructure as Code</td></tr>
+                            <tr><td>🎯 GitOps Controller</td><td>ArgoCD</td><td>Automatische Deployments</td></tr>
+                            <tr><td>📦 Application Packaging</td><td>Helm Charts</td><td>Kubernetes Manifests</td></tr>
+                            <tr><td>🐳 Containerization</td><td>Docker</td><td>Anwendungs-Isolation</td></tr>
+                            <tr><td>☸️ Orchestration</td><td>Kubernetes</td><td>Container-Management</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="power-rangers-fight">
+                    <h3>🔄 Der GitOps-Workflow</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin: 15px 0;">
+                        <div style="background: rgba(233, 69, 96, 0.2); padding: 10px; border-radius: 8px; text-align: center; flex: 1; min-width: 100px; position: relative; font-size: 0.9em; color: #fff; border: 1px solid #e94560;">
+                            Git Push
+                        </div>
+                        <div style="position: absolute; right: -8px; top: 50%; transform: translateY(-50%); font-size: 14px; color: #e94560;">→</div>
+                        <div style="background: rgba(52, 152, 219, 0.2); padding: 10px; border-radius: 8px; text-align: center; flex: 1; min-width: 100px; position: relative; font-size: 0.9em; color: #fff; border: 1px solid #3498db;">
+                            ArgoCD Sync
+                        </div>
+                        <div style="position: absolute; right: -8px; top: 50%; transform: translateY(-50%); font-size: 14px; color: #e94560;">→</div>
+                        <div style="background: rgba(46, 204, 113, 0.2); padding: 10px; border-radius: 8px; text-align: center; flex: 1; min-width: 100px; position: relative; font-size: 0.9em; color: #fff; border: 1px solid #2ecc71;">
+                            Kubernetes
+                        </div>
+                    </div>
+                    <p>Die Infrastruktur folgt dem GitOps-Prinzip: Alle Konfigurationen werden in Git versioniert und automatisch durch ArgoCD deployed.</p>
+                </div>
+            </div>
+            <div class="footer">
+                <span>⚡ Morphing Sequence - Kapitel II</span>
+            </div>
+        </div>
+
+        <!-- Slide 2: Zord Battle - Constraints & Shortcomings -->
+        <div class="slide" id="slide-2">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon active" title="Zord Battle">⚔️</span>
+                <span class="signpost-icon" title="Rita's Palace">👹</span>
+                <span class="signpost-icon" title="Victory">🏆</span>
+                <span class="signpost-icon" title="Epilog">🌟</span>
+            </div>
+            <div class="zord-battle-container">
+                <div class="megazord">
+                    <div class="zord-head">🤖</div>
+                    <div class="zord-body">⚡</div>
+                    <div class="zord-arms">💪</div>
+                </div>
+                <div class="battle-impact">💥</div>
+                <div class="enemy-monster">👹</div>
+            </div>
+            <h2 class="section-title">Zord Battle - Constraints & Shortcomings</h2>
+            <div class="battle-section">
+                <div class="power-rangers-fight">
+                    <h3>⚔️ Die Herausforderungen des Megazords</h3>
+                    <p>Wie die Power Rangers mit ihren Zords kämpfen, so kämpfen wir mit technischen Herausforderungen:</p>
+                    <table class="stats-table">
+                        <thead>
+                            <tr><th>Constraint</th><th>Auswirkung</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>🔒 Kubernetes Expertise</td><td>Begrenzte Erfahrung mit K8s</td><td style="color: #ff9800;">⚠️ LERNEND</td></tr>
+                            <tr><td>⏱️ Zeitdruck</td><td>Semester-Zeitplan</td><td style="color: #ff5722;">🔥 KRITISCH</td></tr>
+                            <tr><td>🛠️ Tool-Komplexität</td><td>ArgoCD + Helm + Terraform</td><td style="color: #ff9800;">⚠️ HERAUSFORDERND</td></tr>
+                            <tr><td>🌐 Netzwerk-Konfiguration</td><td>Ingress & Service Mesh</td><td style="color: #4caf50;">✅ GELÖST</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="power-rangers-fight">
+                    <h3>🎯 Identifizierte Schwachstellen</h3>
+                    <div class="weakness-list">
+                        <div class="weakness-item">
+                            <span class="weakness-icon">🔍</span>
+                            <div>
+                                <strong>Monitoring & Observability</strong><br>
+                                <em>Fehlende Metriken und Logging-Strategie</em>
+                            </div>
+                        </div>
+                        <div class="weakness-item">
+                            <span class="weakness-icon">🛡️</span>
+                            <div>
+                                <strong>Security Hardening</strong><br>
+                                <em>Pod Security Policies nicht implementiert</em>
+                            </div>
+                        </div>
+                        <div class="weakness-item">
+                            <span class="weakness-icon">📊</span>
+                            <div>
+                                <strong>Performance Testing</strong><br>
+                                <em>Keine Lasttests für die Anwendungen</em>
+                            </div>
+                        </div>
+                        <div class="weakness-item">
+                            <span class="weakness-icon">🔄</span>
+                            <div>
+                                <strong>Rollback-Strategie</strong><br>
+                                <em>Automatisierte Rollbacks nicht vollständig</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <span>⚔️ Zord Battle - Kapitel III</span>
+            </div>
+        </div>
+
+        <!-- Slide 3: Rita's Palace - Missing Topics -->
+        <div class="slide" id="slide-3">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="Zord Battle">⚔️</span>
+                <span class="signpost-icon active" title="Rita's Palace">👹</span>
+                <span class="signpost-icon" title="Victory">🏆</span>
+                <span class="signpost-icon" title="Epilog">🌟</span>
+            </div>
+            <div class="ritas-palace-container">
+                <div class="palace-tower">🏰</div>
+                <div class="evil-energy">💀</div>
+                <div class="dark-clouds">☁️</div>
+            </div>
+            <h2 class="section-title">Rita's Palace - Missing Topics & Future Missions</h2>
+            <div class="battle-section">
+                <div class="power-rangers-fight">
+                    <h3>👹 Die dunklen Bereiche der DevOps-Welt</h3>
+                    <p>Wie Rita Repulsa neue Monster erschafft, so entdecken wir neue Herausforderungen:</p>
+                    <table class="validation-table">
+                        <thead>
+                            <tr><th>Missing Topic</th><th>Bedeutung</th><th>Priorität</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>🔍 Service Mesh (Istio)</td><td>Microservices-Kommunikation</td><td style="color: #ff5722;">🔥 HOCH</td></tr>
+                            <tr><td>📈 Prometheus + Grafana</td><td>Monitoring & Alerting</td><td style="color: #ff9800;">⚠️ MITTEL</td></tr>
+                            <tr><td>🔐 Vault Integration</td><td>Secret Management</td><td style="color: #ff9800;">⚠️ MITTEL</td></tr>
+                            <tr><td>🌐 Multi-Cluster Setup</td><td>High Availability</td><td style="color: #4caf50;">✅ NIEDRIG</td></tr>
+                            <tr><td>🧪 Chaos Engineering</td><td>Resilienz-Tests</td><td style="color: #4caf50;">✅ NIEDRIG</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="power-rangers-fight">
+                    <h3>🚀 Nächste Missionen für das Team</h3>
+                    <div class="mission-list">
+                        <div class="mission-item">
+                            <span class="mission-icon">🔍</span>
+                            <div>
+                                <strong>Observability Stack</strong><br>
+                                <em>Implementierung von ELK Stack oder Prometheus</em>
+                            </div>
+                        </div>
+                        <div class="mission-item">
+                            <span class="mission-icon">🛡️</span>
+                            <div>
+                                <strong>Security Scanning</strong><br>
+                                <em>Trivy für Container-Scans, Falco für Runtime</em>
+                            </div>
+                        </div>
+                        <div class="mission-item">
+                            <span class="mission-icon">⚡</span>
+                            <div>
+                                <strong>Performance Optimization</strong><br>
+                                <em>Resource Limits, HPA, VPA</em>
+                            </div>
+                        </div>
+                        <div class="mission-item">
+                            <span class="mission-icon">🌍</span>
+                            <div>
+                                <strong>Multi-Environment</strong><br>
+                                <em>Dev, Staging, Production Workflows</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <span>👹 Rita's Palace - Kapitel IV</span>
+            </div>
+        </div>
+
+        <!-- Slide 4: Victory - Project Success -->
+        <div class="slide" id="slide-4">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="Zord Battle">⚔️</span>
+                <span class="signpost-icon" title="Rita's Palace">👹</span>
+                <span class="signpost-icon active" title="Victory">🏆</span>
+                <span class="signpost-icon" title="Epilog">🌟</span>
+            </div>
+            <div class="victory-container">
+                <div class="power-rangers-victory">
+                    <span class="ranger red">🦸‍♂️</span>
+                    <span class="ranger blue">🦸‍♂️</span>
+                    <span class="ranger green">🦸‍♂️</span>
+                    <span class="ranger pink">🦸‍♀️</span>
+                </div>
+                <div class="victory-energy">✨</div>
+            </div>
+            <h2 class="section-title">Victory - Project Achievements</h2>
+            <div class="battle-section">
+                <div class="power-rangers-fight">
+                    <h3>🏆 Erfolgreich abgeschlossene Missionen</h3>
+                    <table class="stats-table">
+                        <thead>
+                            <tr><th>Achievement</th><th>Status</th><th>Impact</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>✅ GitOps Workflow</td><td style="color: #4caf50;">ERFOLGREICH</td><td>Automatisierte Deployments</td></tr>
+                            <tr><td>✅ Multi-Service Architecture</td><td style="color: #4caf50;">ERFOLGREICH</td><td>Skalierbare Anwendungen</td></tr>
+                            <tr><td>✅ Infrastructure as Code</td><td style="color: #4caf50;">ERFOLGREICH</td><td>Versionierte Infrastruktur</td></tr>
+                            <tr><td>✅ CI/CD Pipeline</td><td style="color: #4caf50;">ERFOLGREICH</td><td>Kontinuierliche Integration</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="power-rangers-fight">
+                    <h3>🎯 Gelernte Fähigkeiten</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon">🐳</span>
+                            <strong>Docker & Containerization</strong>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">☸️</span>
+                            <strong>Kubernetes Orchestration</strong>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">⚡</span>
+                            <strong>ArgoCD GitOps</strong>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">📦</span>
+                            <strong>Helm Charts</strong>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">🏗️</span>
+                            <strong>Terraform Infrastructure</strong>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">🔄</span>
+                            <strong>CI/CD Best Practices</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="finale">
+                <h2>🎉 Mission Accomplished!</h2>
+                <h3>Die Power Rangers haben erfolgreich die DevOps-Welt beschützt!</h3>
+                <p>Durch Teamwork, Mut und technisches Können wurde eine moderne, skalierbare Infrastruktur erschaffen.</p>
+            </div>
+            <div class="footer">
+                <span>🏆 Victory - Kapitel V</span>
+            </div>
+        </div>
+
+        <!-- Slide 5: Epilog - Lessons Learned -->
+        <div class="slide" id="slide-5">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="Zord Battle">⚔️</span>
+                <span class="signpost-icon" title="Rita's Palace">👹</span>
+                <span class="signpost-icon" title="Victory">🏆</span>
+                <span class="signpost-icon active" title="Epilog">🌟</span>
+            </div>
+            <div class="epilog-container">
+                <div class="morphin-grid">
+                    <span class="morphin-cell red">⚡</span>
+                    <span class="morphin-cell blue">⚡</span>
+                    <span class="morphin-cell green">⚡</span>
+                    <span class="morphin-cell pink">⚡</span>
+                </div>
+            </div>
+            <h2 class="section-title">Epilog - Lessons Learned & Future Missions</h2>
+            <div class="battle-section">
+                <div class="power-rangers-fight">
+                    <h3>🌟 Wichtige Erkenntnisse</h3>
+                    <div class="lessons-list">
+                        <div class="lesson-item">
+                            <span class="lesson-icon">🤝</span>
+                            <div>
+                                <strong>Teamwork ist entscheidend</strong><br>
+                                <em>Komplexe DevOps-Projekte erfordern Zusammenarbeit</em>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <span class="lesson-icon">📚</span>
+                            <div>
+                                <strong>Kontinuierliches Lernen</strong><br>
+                                <em>Die DevOps-Welt entwickelt sich ständig weiter</em>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <span class="lesson-icon">🔧</span>
+                            <div>
+                                <strong>Pragmatischer Ansatz</strong><br>
+                                <em>Perfektion ist der Feind des Fortschritts</em>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <span class="lesson-icon">📊</span>
+                            <div>
+                                <strong>Monitoring von Anfang an</strong><br>
+                                <em>Observability sollte von Beginn an geplant werden</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="power-rangers-fight">
+                    <h3>🚀 Nächste Abenteuer</h3>
+                    <div class="future-missions">
+                        <div class="mission-card">
+                            <h4>🌐 Multi-Cloud Strategy</h4>
+                            <p>Erkundung von Hybrid-Cloud-Ansätzen</p>
+                        </div>
+                        <div class="mission-card">
+                            <h4>🤖 AI/ML Integration</h4>
+                            <p>Machine Learning in der DevOps-Pipeline</p>
+                        </div>
+                        <div class="mission-card">
+                            <h4>🔒 Zero Trust Security</h4>
+                            <p>Moderne Sicherheitsarchitekturen</p>
+                        </div>
+                        <div class="mission-card">
+                            <h4>⚡ Serverless Evolution</h4>
+                            <p>Nächste Generation der Serverless-Architektur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="finale">
+                <h2>🌟 "It's Morphin Time!"</h2>
+                <h3>Die Power Rangers sind bereit für neue Herausforderungen!</h3>
+                <p><strong>Team Gruppe 1</strong> - Bereit für die nächste DevOps-Mission! 🚀</p>
+            </div>
+            <div class="footer">
+                <p><em>Erstellt mit der Kraft der Power Rangers</em></p>
+                <p><strong>INEN PT - MCCE Semester 2</strong></p>
+                <p><strong>Team: Harald, Susanne, Patrick</strong> ⚡</p>
+                <span><i class="fa-solid fa-star"></i> Go Go Power Rangers!</span>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin: 30px 0 18px 0;">
+            <button class="nav-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i> Zurück</button>
+            <button class="nav-btn" id="nextBtn">Weiter <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <script>
+        // Slide navigation logic
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+
+        function showSlide(idx) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === idx);
+                // Update signpost icons
+                const signposts = slide.querySelectorAll('.signpost-icon');
+                signposts.forEach((icon, j) => {
+                    icon.classList.toggle('active', j === idx);
+                });
+            });
+            prevBtn.disabled = idx === 0;
+            nextBtn.disabled = idx === slides.length - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+                nextBtn.click();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                prevBtn.click();
+            }
+        });
+
+        // Allow clicking signpost icons to jump to slide
+        document.querySelectorAll('.signpost').forEach((signpost, slideIdx) => {
+            signpost.querySelectorAll('.signpost-icon').forEach((icon, idx) => {
+                icon.style.cursor = 'pointer';
+                icon.addEventListener('click', () => {
+                    currentSlide = idx;
+                    showSlide(currentSlide);
+                });
+            });
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html> 
