@@ -602,6 +602,20 @@
             padding: 18px 0 10px 0;
             border-bottom: 2px solid #e94560;
         }
+        #plantuml-arch {
+            min-width: 1200px;
+            min-height: 800px;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            background: rgba(255,255,255,0.04);
+            border-radius: 16px;
+            box-shadow: 0 6px 32px 0 rgba(31,38,135,0.13);
+            padding: 24px 8px;
+            border: 2px solid #e94560;
+            overflow-x: auto;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -722,36 +736,35 @@
                 <div id="plantuml-arch" style="margin: 40px auto; max-width: 1100px; min-width: 320px; text-align:center; background:rgba(255,255,255,0.04); border-radius:16px; box-shadow:0 6px 32px 0 rgba(31,38,135,0.13); padding: 24px 8px; border:2px solid #e94560;"></div>
                 <h3 class="section-title">How We Morph: From Repo to Production</h3>
                 <div style="display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;">
-                    <a href="https://github.com/MCCE2024/INENPT-G1-Code" target="_blank" style="text-decoration:none;">
-                        <div class="skill-item" style="background:linear-gradient(135deg,#27ae60,#219150);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:170px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(39,174,96,0.08);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                            <span class="skill-icon" style="font-size:2em;">📦</span><strong>INENPT-G1-Code<br>Application & CI/CD</strong>
-                        </div>
-                    </a>
+                    <div class="skill-item" style="background:linear-gradient(135deg,#7877c6,#4b3ca7);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:190px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(120,119,198,0.10);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                        <span class="skill-icon" style="font-size:2em;">🏗️</span><strong>INENPT-G1-K8s<br>Initial Cluster & DB Setup</strong>
+                    </div>
                     <span style="font-size:2em;">→</span>
-                    <a href="https://github.com/MCCE2024/INENPT-G1-K8s" target="_blank" style="text-decoration:none;">
-                        <div class="skill-item" style="background:linear-gradient(135deg,#7877c6,#4b3ca7);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:190px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(120,119,198,0.10);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                            <span class="skill-icon" style="font-size:2em;">🏗️</span><strong>INENPT-G1-K8s<br>Kubernetes & Infra</strong>
-                        </div>
-                    </a>
+                    <div class="skill-item" style="background:linear-gradient(135deg,#27ae60,#219150);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:170px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(39,174,96,0.08);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                        <span class="skill-icon" style="font-size:2em;">🧑‍💻</span><strong>INENPT-G1-Code<br>Code & CI/CD</strong>
+                    </div>
                     <span style="font-size:2em;">→</span>
-                    <a href="https://github.com/MCCE2024/INENPT-G1-Argo" target="_blank" style="text-decoration:none;">
-                        <div class="skill-item" style="background:linear-gradient(135deg,#e94560,#c0392b);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:170px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(233,69,96,0.10);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                            <span class="skill-icon" style="font-size:2em;">⚡</span><strong>INENPT-G1-Argo<br>GitOps & Automation</strong>
-                        </div>
-                    </a>
+                    <div class="skill-item" style="background:linear-gradient(135deg,#2980b9,#3498db);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:170px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(52,152,219,0.10);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                        <span class="skill-icon" style="font-size:2em;">📦</span><strong>ghcr.io/mcce2024<br>Container Registry</strong>
+                    </div>
+                    <span style="font-size:2em;">→</span>
+                    <div class="skill-item" style="background:linear-gradient(135deg,#e94560,#c0392b);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:170px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(233,69,96,0.10);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                        <span class="skill-icon" style="font-size:2em;">🤖</span><strong>INENPT-G1-Argo<br>ArgoCD GitOps & Tenants</strong>
+                    </div>
                     <span style="font-size:2em;">→</span>
                     <div class="skill-item" style="background:linear-gradient(135deg,#3498db,#2980b9);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:150px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(52,152,219,0.10);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                        <span class="skill-icon" style="font-size:2em;">☁️</span><strong>Cloud<br>(Exoscale)</strong>
+                        <span class="skill-icon" style="font-size:2em;">☸️</span><strong>Kubernetes Cluster<br>(Workloads & Tenants)</strong>
                     </div>
                 </div>
                 <ul style="margin-top:24px;font-size:1.1em;line-height:1.7;">
-                    <li><strong>INENPT-G1-Code:</strong> Enthält die Microservices, Auth, CI/CD Workflows. Entwickler pushen Code, Pipelines bauen & testen automatisch.</li>
-                    <li><strong>INENPT-G1-K8s:</strong> Enthält alle Kubernetes Manifeste, Helm Charts und <code>/infrastructure</code> (Opentofu). Hier wird die Infrastruktur als Code verwaltet und neue Tenants können per Git Commit onboarded werden.</li>
-                    <li><strong>INENPT-G1-Argo:</strong> GitOps Controller (ArgoCD) – überwacht die Repos, synchronisiert Deployments, sorgt für No-Click-Setup und Automatisierung.</li>
-                    <li><strong>/infrastructure:</strong> Opentofu-Code für Cloud-Ressourcen, Netzwerke, Datenbanken, VMs. Ein Commit reicht, um neue Mandanten oder Ressourcen bereitzustellen.</li>
+                    <li><strong>INENPT-G1-K8s:</strong> Einmalige Initialisierung des Kubernetes-Clusters und der PostgreSQL-Datenbank. Nicht beteiligt an laufenden Deployments oder Tenant-Onboarding.</li>
+                    <li><strong>INENPT-G1-Code:</strong> Entwickler pushen Code, CI/CD baut Images und pusht sie in die Container Registry (<strong>ghcr.io/mcce2024</strong>).</li>
+                    <li><strong>ghcr.io/mcce2024:</strong> Container Registry für alle gebauten Images.</li>
+                    <li><strong>INENPT-G1-Argo:</strong> ArgoCD überwacht die Registry und das GitOps-Repo. Bei neuen Images oder Tenant-Konfigurationen werden Deployments aktualisiert und neue Namespaces (Tenants) im Cluster erstellt.</li>
+                    <li><strong>Kubernetes Cluster:</strong> Erhält Deployments und neue Namespaces direkt von ArgoCD und betreibt die Workloads für alle Tenants.</li>
                 </ul>
-                <div style="background:#d1ecf1;color:#0c5460;border:1px solid #bee5eb;border-radius:8px;padding:12px;margin:18px 0;font-size:1.05em;text-align:center;">
-                    <strong>Ein neuer Tenant? Einfach ein Git Commit – der Rest läuft automatisch!</strong>
+                <div style="background:#e2e3e5;color:#383d41;border:1px solid #d6d8db;border-radius:8px;padding:12px;font-size:1.05em;text-align:center;">
+                    <strong>Keine manuellen Schritte. Keine Downtime. 100% Nachvollziehbarkeit. Onboarding und Updates laufen vollautomatisch über GitOps!</strong>
                 </div>
             </div>
             <div class="footer">
@@ -780,10 +793,10 @@
                         </tbody>
                     </table>
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
-                        <div style="background:linear-gradient(135deg,#e94560,#c0392b);color:#fff;padding:12px;border-radius:10px;display:flex;align-items:center;gap:10px;font-weight:bold;"><i class="fa-solid fa-fire"></i> Automatisierte Infrastruktur<br><span style='font-size:0.95em;font-weight:normal;'>Terraform auf Exoscale (Red Ranger)</span></div>
+                        <div style="background:linear-gradient(135deg,#e94560,#c0392b);color:#fff;padding:12px;border-radius:10px;display:flex;align-items:center;gap:10px;font-weight:bold;"><i class="fa-solid fa-fire"></i> Automatisierte Infrastruktur<br><span style='font-size:0.95em;font-weight:normal;'>Opentofu auf Exoscale (Red Ranger)</span></div>
                         <div style="background:linear-gradient(135deg,#e91e63,#c2185b);color:#fff;padding:12px;border-radius:10px;display:flex;align-items:center;gap:10px;font-weight:bold;"><i class="fa-solid fa-user-shield"></i> Sichere Multi-Tenancy<br><span style='font-size:0.95em;font-weight:normal;'>Namespaces, Secrets, GitHub OAuth (Pink Ranger)</span></div>
                         <div style="background:linear-gradient(135deg,#2ecc71,#27ae60);color:#fff;padding:12px;border-radius:10px;display:flex;align-items:center;gap:10px;font-weight:bold;"><i class="fa-solid fa-bolt"></i> Continuous Delivery<br><span style='font-size:0.95em;font-weight:normal;'>ArgoCD GitOps, Helm, No-Click-Setup (Green Ranger)</span></div>
-                        <div style="background:linear-gradient(135deg,#f1c40f,#f39c12);color:#fff;padding:12px;border-radius:10px;display:flex;align-items:center;gap:10px;font-weight:bold;"><i class="fa-solid fa-vial"></i> CI/CD Pipelines<br><span style='font-size:0.95em;font-weight:normal;'>Automatisierte Builds, Tests, Deployments (Alle Rangers)</span></div>
+                        <div style="background:linear-gradient(135deg,#f1c40f,#f39c12);color:#fff;padding:12px;border-radius:10px;display:flex;align-items:center;gap:10px;font-weight:bold;"><i class="fa-solid fa-vial"></i> CI/CD Pipelines<br><span style='font-size:0.95em;font-weight:normal;'>Automatisierte Container Builds, Triggern von Deployments (Alle Rangers)</span></div>
                         <div style="background:linear-gradient(135deg,#3498db,#2980b9);color:#fff;padding:12px;border-radius:10px;display:flex;align-items:center;gap:10px;font-weight:bold;grid-column:span 2;"><i class="fa-solid fa-code-branch"></i> Multi-Tenancy ohne Code-Änderung<br><span style='font-size:0.95em;font-weight:normal;'>Mandantenfähigkeit auf Infrastrukturebene – Fokus auf Features!</span></div>
                     </div>
                     <div style="background:#d1ecf1;color:#0c5460;border:1px solid #bee5eb;border-radius:8px;padding:12px;margin-bottom:18px;font-size:1.05em;text-align:center;">
@@ -815,7 +828,22 @@
             </div>
             <script>
             window.addEventListener('DOMContentLoaded', function() {
-                const plantumlMicro = `@startuml\n!theme spacelab\nskinparam defaultFontName Roboto\nskinparam rectangle {\n  BackgroundColor White\n  BorderColor Black\n}\nleft to right direction\nactor "+ Producer" as producer #e94560\nactor "+ Consumer" as consumer #f1c40f\nrectangle "API" as api #3498db\ndatabase "PostgreSQL" as db #2ecc71\nproducer -right-> api : HTTP POST\nconsumer -left-> api : HTTP GET\napi -down-> db : Store/Retrieve\n@enduml`;
+                const plantumlMicro = `@startuml
+!theme spacelab
+skinparam defaultFontName Roboto
+skinparam rectangle {
+  BackgroundColor White
+  BorderColor Black
+}
+left to right direction
+rectangle "Producer Service" as producer #e94560
+rectangle "Consumer Web App" as consumer #f1c40f
+rectangle "API Service" as api #3498db
+database "PostgreSQL" as db #2ecc71
+producer -right-> api : HTTP POST
+consumer -left-> api : HTTP GET
+api -down-> db : Store/Retrieve
+@enduml`;
                 function renderPlantUML(id, uml) {
                     try {
                         const encoded = plantumlEncoder.encode(uml);
@@ -992,82 +1020,76 @@
         // PlantUML diagram for Megazord architecture (for id="plantuml-arch")
         window.onload = function() {
             const plantumlArch = `@startuml
+scale 2
 !theme spacelab
-scale 1.5
 skinparam defaultFontName Roboto
-skinparam defaultFontSize 22
-skinparam backgroundColor transparent
-skinparam rectangle {
-  BackgroundColor #181a2e
-  BorderColor #e94560
-  FontColor White
-}
-skinparam cloud {
-  BackgroundColor #23272e
-  BorderColor #6c757d
-  FontColor white
-  FontSize 26
-  FontStyle bold
-}
-skinparam actor {
-  BackgroundColor white
-  BorderColor white
-  FontColor white
-  FontSize 26
-  FontStyle bold
-}
-left to right direction
-legend right
-  <b>Legend</b>
-  <color:#1e90ff>Blue Arrow</color>: Data/API Flow
-  <color:#f8f9fa>White Arrow</color>: Control/Trigger
-  <b>User/Customer</b>: End User
-  <b>Cloud</b>: Cloud Platform
-endlegend
-actor "User/Customer" as user #white;line.bold;line.bold
-cloud "Cloud" as cloud #white;line.bold
+skinparam defaultFontSize 28
+skinparam packageFontSize 32
+skinparam packageFontColor #e94560
+skinparam packageFontStyle bold
+skinparam rectangleFontSize 28
+skinparam rectangleFontColor #ffffff
+skinparam rectangleFontStyle bold
+skinparam noteFontSize 24
+skinparam noteFontColor #f1c40f
+skinparam noteFontStyle bold
+skinparam actorFontSize 36
+skinparam actorFontColor #ffffff
+skinparam actorFontStyle bold
+skinparam ArrowColor #ffffff
+top to bottom direction
 
-package "GitHub Repos" #23244a {
-  [INENPT-G1-Code] as code #27ae60
-  [INENPT-G1-K8s] as k8s #2980b9
-  [INENPT-G1-Argo] as argo #e94560
+actor "User" as user #ffffff
+
+package "GitHub Repos" <<repo>> #27ae60 {
+  rectangle "🧑‍💻 INENPT-G1-Code" as code #27ae60
+  rectangle "🤖 INENPT-G1-Argo" as argo #e94560
 }
 
-package "DevOps Megazord" #23244a {
-  [Producer (Python)] as producer #27ae60
-  [API (Node.js)] as api #2980b9
-  [Consumer (Node.js)] as consumer #f1c40f
-  [PostgreSQL] as db #e67e22
+rectangle "📦 ghcr.io/mcce2024" as ghcr #2980b9
+
+package "Kubernetes Cluster" <<k8s>> #3498db {
+  package "DevOps Megazord" #f1c40f {
+    rectangle "🐍 Producer (Python)" as producer #27ae60
+    rectangle "🟦 API (Node.js)" as api #2980b9
+    rectangle "🟨 Consumer (Node.js)" as consumer #f1c40f
+    rectangle "🏷️ Namespace (Tenant)" as ns #e67e22
+  }
 }
 
-' Application/Data Flow
-user -right-> consumer : Uses Frontend
-consumer -down-> api : API Calls <color:DarkGreen>
-producer -right-> api : Sends Data <color:DarkGreen>
-api -down-> db : Stores Data <color:DarkGreen>
+rectangle "🏗️ INENPT-G1-K8s" as k8s #7877c6
+rectangle "🗄️ PostgreSQL" as db #2ecc71
 
-' DevOps/GitOps Flow
-code -down-> k8s : CI/CD <color:RoyalBlue>
-k8s -down-> argo : K8s Manifests <color:RoyalBlue>
-argo -down-> cloud : GitOps Deploy <color:RoyalBlue>
-argo -left-> k8s : Sync <color:RoyalBlue>
+code --> ghcr : Build & Push Images
+ghcr --> producer : Pull Image
+ghcr --> api : Pull Image
+ghcr --> consumer : Pull Image
 
-' Application deployment
-code -right-> producer : App Code <color:RoyalBlue>
-code -right-> api :  <color:RoyalBlue>
-code -right-> consumer :  <color:RoyalBlue>
+argo --> ns : New Tenant
+argo --> ns : GitOps Sync
 
-' Notes for clarity
-note right of code #23244a: App Code, CI/CD
-note right of k8s #23244a: K8s Manifeste, Infra as Code
-note right of argo #23244a: GitOps Automation
-note right of cloud: Exoscale
+k8s --> "Kubernetes Cluster" : Initial Cluster Setup
+k8s --> db : Initial PostgreSQL Setup
+
+ns --> "Kubernetes Cluster" : Namespace Created
+
+user --> consumer : Uses Frontend
+consumer --> api : API Calls
+producer --> api : Sends Data
+api --> db : Stores Data
+api --> ns : Checks Namespace (Tenant)
+
+note right of ns
+  Each tenant = K8s Namespace
+  Onboarded via Code+Argo
+end note
+
 @enduml`;
             function renderPlantUML(id, uml) {
                 try {
                     const encoded = plantumlEncoder.encode(uml);
                     const url = `https://www.plantuml.com/plantuml/svg/${encoded}`;
-                    document.getElementById(id).innerHTML = `<img src="${url}" alt="Megazord Architektur Diagramm" style="width:100%;max-width:1020px;min-width:320px;border-radius:12px;box-shadow:0 4px 24px 0 rgba(31,38,135,0.17);margin:0 auto;display:block;background:transparent;padding:12px;">`;
+                    document.getElementById(id).innerHTML = `<img src="${url}" alt="Megazord Architektur Diagramm" style="width:100%;height:auto;max-width:none;border-radius:12px;box-shadow:0 4px 24px 0 rgba(31,38,135,0.17);margin:0 auto;display:block;background:transparent;padding:12px;">`;
                 } catch (e) {
                     document.getElementById(id).innerHTML = '<div style="color:#e94560;font-weight:bold;">Diagramm konnte nicht geladen werden.</div>';
                 }
