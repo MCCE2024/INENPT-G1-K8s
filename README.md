@@ -195,7 +195,7 @@ resource "exoscale_security_group" "sks" {
 ### **Prerequisites**
 - Terraform/OpenTofu >= 1.0
 - Exoscale Cloud account
-- kubectl configured
+   - kubectl configured
 - GitHub OAuth application
 
 ### **Step 1: Configure Environment**
@@ -208,8 +208,8 @@ nano infrastructure/terraform.tfvars
 ```
 
 ### **Step 2: Deploy Infrastructure**
-```bash
-cd infrastructure
+   ```bash
+   cd infrastructure
 
 # Initialize Terraform
 terraform init
@@ -222,7 +222,7 @@ terraform apply
 ```
 
 ### **Step 3: Configure Kubernetes Access**
-```bash
+   ```bash
 # Get cluster credentials
 exo compute sks kubeconfig inenpt-g1-sks-cluster \
     --zone at-vie-1 \
@@ -234,13 +234,13 @@ kubectl get nodes
 ```
 
 ### **Step 4: Deploy Applications**
-```bash
+   ```bash
 # Apply Kubernetes manifests
 kubectl apply -f applications/
 
 # Install ArgoCD
-kubectl apply -f applications/argocd/
-```
+   kubectl apply -f applications/argocd/
+   ```
 
 > [!CAUTION]
 > If you destroy the infrastructure, all data in the managed PostgreSQL instance will be lost unless backups are configured and restored.

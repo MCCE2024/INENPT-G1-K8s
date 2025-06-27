@@ -559,6 +559,39 @@
             .skills-grid { grid-template-columns: 1fr; }
             .header, .finale, .battle-section, .footer, .slide { padding: 10px; }
         }
+        .fa-animated {
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .fa-bounce {
+            animation: bounce 1.2s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-12px); }
+        }
+        .fa-spin {
+            animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .fa-pulse {
+            animation: pulse 1.2s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+        .fa-shake {
+            animation: shake 0.7s infinite alternate;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(8px); }
+        }
     </style>
 </head>
 <body>
@@ -567,7 +600,7 @@
         <!-- Slide 0: Command Center - Welcome & Team -->
         <div class="slide active" id="slide-0">
             <div class="header">
-                <h1>⚡ Power Rangers DevOps</h1>
+                <h1><i class="fa-solid fa-landmark fa-animated fa-bounce" style="color:#e94560;"></i> Power Rangers DevOps</h1>
                 <div class="subtitle">Kapitel I: Die Berufung – Cloud-Native Megazord</div>
                 <div class="meta-info">
                     <strong>Team Gruppe 1 - INEN PT</strong><br>
@@ -582,7 +615,9 @@
             <div class="signpost">
                 <span class="signpost-icon active" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
@@ -596,20 +631,24 @@
                 <div style="background: rgba(233, 69, 96, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #e94560; min-width:220px;flex:1;">
                     <div style="display:flex;align-items:center;gap:10px;">
                         <span style="font-size:2em;color:#e94560;">🦸‍♂️</span>
-                        <span>Harald (Red Ranger) – Terraform-Weiser</span>
+                        <span>Harald (Wirtschaft & Kastel-Zeichner)</span>
                     </div>
+                    <div style="margin-top:8px;font-style:italic;color:#e94560;font-size:0.98em;">„Mit Strategie und Vision formen wir den Megazord der Zukunft!“</div>
                 </div>
                 <div style="background: rgba(233, 30, 99, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #e91e63; min-width:220px;flex:1;">
-                    <div style="display:flex;align-items:center;gap:10px;">🦸‍♀️ <span>Susanne (Pink Ranger) – Security-Expertin</span></div>
+                    <div style="display:flex;align-items:center;gap:10px;">🧑‍♀️ <span>Susanne (Developer)</span></div>
+                    <div style="margin-top:8px;font-style:italic;color:#e91e63;font-size:0.98em;">„Code ist meine Superkraft – gemeinsam besiegen wir jeden Bug!“</div>
                 </div>
                 <div style="background: rgba(46, 204, 113, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #2ecc71; min-width:220px;flex:1;">
-                    <div style="display:flex;align-items:center;gap:10px;">🦸‍♂️ <span>Patrick (Green Ranger) – Der Retter</span></div>
+                    <div style="display:flex;align-items:center;gap:10px;">🧑‍♂️ <span>Patrick (Sysadmin/Operations Hero)</span></div>
+                    <div style="margin-top:8px;font-style:italic;color:#2ecc71;font-size:0.98em;">„Kein System ist zu wild – ich halte die Ranger-Infrastruktur am Laufen!“</div>
                 </div>
                 <div style="background: rgba(120, 119, 198, 0.12); padding: 15px; border-radius: 12px; border: 2px solid #7877c6; min-width:220px;flex:1;">
                     <div style="display:flex;align-items:center;gap:10px;">
                         <span style="font-size:2em;color:#7877c6;">🧑‍🚀</span>
-                        <span>Thomas (Zordon) – Lektor & Mentor</span>
+                        <span>Thomas (Zordon – Lektor & Mentor)</span>
                     </div>
+                    <div style="margin-top:8px;font-style:italic;color:#7877c6;font-size:0.98em;">„Power Rangers, vereint eure Kräfte – und denkt an sauberen Code!“</div>
                 </div>
             </div>
             <div style="margin: 30px auto; max-width: 700px;">
@@ -626,7 +665,9 @@
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon active" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
@@ -635,7 +676,7 @@
                 <span class="signpost-icon" title="Testimonials">💬</span>
                 <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">👹 Die Herausforderung</h2>
+            <h2 class="section-title"><i class="fa-solid fa-skull-crossbones fa-animated fa-shake" style="color:#e94560;"></i> Die Herausforderung</h2>
             <div class="battle-section">
                 <p>Unternehmen kämpfen mit komplexen Deployments, Sicherheitsrisiken und fehlender Skalierbarkeit. <strong>Legacy-IT</strong> ist wie Rita Repulsa: Sie bringt Chaos und Unsicherheit!</p>
                 <div style="margin: 20px 0; text-align: center;">
@@ -659,6 +700,7 @@
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
                 <span class="signpost-icon active" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
@@ -667,7 +709,7 @@
                 <span class="signpost-icon" title="Testimonials">💬</span>
                 <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">🤖 Megazord Architektur – 3-Repo Power</h2>
+            <h2 class="section-title"><i class="fa-solid fa-robot fa-animated fa-bounce" style="color:#e94560;"></i> Megazord Architektur – 3-Repo Power</h2>
             <div class="battle-section">
                 <div style="display:flex;justify-content:center;gap:30px;align-items:center;flex-wrap:wrap;">
                     <a href="https://github.com/MCCE2024/INENPT-G1-Code" target="_blank" style="text-decoration:none;">
@@ -705,8 +747,10 @@
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
-                <span class="signpost-icon active" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
                 <span class="signpost-icon" title="Use Cases">🌍</span>
@@ -714,7 +758,7 @@
                 <span class="signpost-icon" title="Testimonials">💬</span>
                 <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">⚡ Technische Heldentaten</h2>
+            <h2 class="section-title"><i class="fa-solid fa-bolt fa-animated fa-pulse" style="color:#f1c40f;"></i> Technische Heldentaten</h2>
             <div class="battle-section">
                 <ul style="font-size:1.1em;line-height:1.7;">
                     <li><strong>Automatisierte Infrastruktur:</strong> Terraform auf Exoscale (Red Ranger)</li>
@@ -737,7 +781,9 @@
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon active" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
@@ -746,7 +792,7 @@
                 <span class="signpost-icon" title="Testimonials">💬</span>
                 <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">🧭 Die Customer Journey</h2>
+            <h2 class="section-title"><i class="fa-solid fa-compass fa-animated fa-spin" style="color:#2ecc71;"></i> Die Customer Journey</h2>
             <div class="battle-section">
                 <ol style="font-size:1.1em;line-height:1.7;">
                     <li><strong>Code Push:</strong> Entwickler committen zu <a href="https://github.com/MCCE2024/INENPT-G1-Code" target="_blank">INENPT-G1-Code</a></li>
@@ -770,7 +816,9 @@
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon active" title="Security & Trust">🛡️</span>
@@ -779,7 +827,7 @@
                 <span class="signpost-icon" title="Testimonials">💬</span>
                 <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">🛡️ Sicherheit & Vertrauen</h2>
+            <h2 class="section-title"><i class="fa-solid fa-shield-halved fa-animated fa-bounce" style="color:#3498db;"></i> Sicherheit & Vertrauen</h2>
             <div class="battle-section">
                 <ul style="font-size:1.1em;line-height:1.7;">
                     <li><strong>Zero-Trust Security:</strong> Netzwerk-Policies, Secrets, OAuth2</li>
@@ -801,7 +849,9 @@
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
@@ -810,7 +860,7 @@
                 <span class="signpost-icon" title="Testimonials">💬</span>
                 <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">🌍 Real-World Use Cases</h2>
+            <h2 class="section-title"><i class="fa-solid fa-globe fa-animated fa-spin" style="color:#27ae60;"></i> Real-World Use Cases</h2>
             <div class="battle-section">
                 <ul style="font-size:1.1em;line-height:1.7;">
                     <li><strong>E-Commerce:</strong> Multi-Tenant Order Management</li>
@@ -831,7 +881,9 @@
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
@@ -840,7 +892,7 @@
                 <span class="signpost-icon" title="Testimonials">💬</span>
                 <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">🎬 Live Demo & Screenshots</h2>
+            <h2 class="section-title"><i class="fa-solid fa-film fa-animated fa-pulse" style="color:#e94560;"></i> Live Demo & Screenshots</h2>
             <div class="battle-section">
                 <p>Sehen Sie die Power Rangers DevOps Plattform in Aktion: ArgoCD UI, automatisierte Deployments, Monitoring Dashboards, Code-Snippets.</p>
                 <div style="text-align:center;">
@@ -860,7 +912,9 @@
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
@@ -869,7 +923,7 @@
                 <span class="signpost-icon active" title="Testimonials">💬</span>
                 <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">💬 Kundenstimmen</h2>
+            <h2 class="section-title"><i class="fa-solid fa-comments fa-animated fa-bounce" style="color:#e94560;"></i> Kundenstimmen</h2>
             <div class="battle-section">
                 <blockquote style="font-size:1.2em;line-height:1.6;border-left:4px solid #e94560;padding-left:18px;margin:18px 0;">
                     „Mit Power Rangers DevOps sind unsere Deployments 10x schneller und 100% zuverlässig!“<br>
@@ -896,7 +950,9 @@
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
                 <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
                 <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="3 Reasons">⭐</span>
                 <span class="signpost-icon" title="Technical Achievements">⚡</span>
                 <span class="signpost-icon" title="Customer Journey">🧭</span>
                 <span class="signpost-icon" title="Security & Trust">🛡️</span>
@@ -905,7 +961,7 @@
                 <span class="signpost-icon" title="Testimonials">💬</span>
                 <span class="signpost-icon active" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">🚀 Zukunft & Call to Action</h2>
+            <h2 class="section-title"><i class="fa-solid fa-rocket fa-animated fa-pulse" style="color:#e94560;"></i> Zukunft & Call to Action</h2>
             <div class="battle-section">
                 <ul style="font-size:1.1em;line-height:1.7;">
                     <li><strong>Roadmap:</strong> Monitoring, Service Mesh, Advanced Security, Multi-Cloud</li>
@@ -922,6 +978,88 @@
             </div>
             <div class="footer">
                 <span>🚀 Zukunft & Call to Action</span>
+            </div>
+        </div>
+
+        <!-- Slide 1.5: Before & After Comparison -->
+        <div class="slide" id="slide-1-5">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon active" title="Before & After">🔄</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
+            </div>
+            <h2 class="section-title"><i class="fa-solid fa-retweet fa-animated fa-spin" style="color:#e94560;"></i> Vorher & Nachher</h2>
+            <div class="battle-section" style="display:flex;gap:32px;flex-wrap:wrap;justify-content:center;align-items:stretch;">
+                <div style="flex:1;min-width:260px;background:#1a1a2e;padding:18px;border-radius:12px;border:2px solid #e94560;box-shadow:0 2px 8px #000;">
+                    <h3 style="color:#e94560;"><i class="fa-solid fa-skull-crossbones fa-animated fa-shake"></i> Vorher: Legacy/DIY DevOps</h3>
+                    <ul style="margin-top:12px;line-height:1.7;font-size:1.05em;">
+                        <li><i class="fa-solid fa-bug"></i> Ständige Ausfälle & Fehler</li>
+                        <li><i class="fa-solid fa-hourglass-end"></i> Langsame Deployments</li>
+                        <li><i class="fa-solid fa-user-secret"></i> Sicherheitslücken & Datenrisiken</li>
+                        <li><i class="fa-solid fa-screwdriver-wrench"></i> Komplexe, manuelle Prozesse</li>
+                        <li><i class="fa-solid fa-brain"></i> Expertenwissen nötig</li>
+                    </ul>
+                </div>
+                <div style="flex:1;min-width:260px;background:#16213e;padding:18px;border-radius:12px;border:2px solid #2ecc71;box-shadow:0 2px 8px #000;">
+                    <h3 style="color:#2ecc71;"><i class="fa-solid fa-bolt fa-animated fa-pulse"></i> Nachher: Power Rangers DevOps Megazord</h3>
+                    <ul style="margin-top:12px;line-height:1.7;font-size:1.05em;">
+                        <li><i class="fa-solid fa-shield-halved"></i> Sicherheit auf allen Ebenen</li>
+                        <li><i class="fa-solid fa-rocket"></i> Deployments in Minuten</li>
+                        <li><i class="fa-solid fa-lock"></i> Compliance & Datenschutz by Design</li>
+                        <li><i class="fa-solid fa-magic"></i> Automatisierung statt Handarbeit</li>
+                        <li><i class="fa-solid fa-users"></i> Jeder kann loslegen – keine Experten nötig</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer">
+                <span>🔄 Vorher & Nachher</span>
+            </div>
+        </div>
+
+        <!-- Slide 2.5: 3 Reasons to Choose Us -->
+        <div class="slide" id="slide-2-5">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Before & After">🔄</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon active" title="3 Reasons">⭐</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
+            </div>
+            <h2 class="section-title"><i class="fa-solid fa-star fa-animated fa-bounce" style="color:#f1c40f;"></i> 3 Gründe für Power Rangers DevOps</h2>
+            <div class="battle-section" style="display:flex;gap:32px;flex-wrap:wrap;justify-content:center;align-items:stretch;">
+                <div style="flex:1;min-width:220px;text-align:center;">
+                    <i class="fa-solid fa-rocket fa-animated fa-pulse" style="font-size:2.2em;color:#e94560;"></i>
+                    <h3 style="margin:12px 0 6px 0;">1. Geschwindigkeit</h3>
+                    <p>Von der Idee zum Produkt in Rekordzeit. Launchen Sie neue Features und Services in Minuten, nicht Monaten.</p>
+                </div>
+                <div style="flex:1;min-width:220px;text-align:center;">
+                    <i class="fa-solid fa-shield-halved fa-animated fa-bounce" style="font-size:2.2em;color:#3498db;"></i>
+                    <h3 style="margin:12px 0 6px 0;">2. Sicherheit</h3>
+                    <p>Zero-Trust, Compliance und Datenschutz sind integriert – Ihre Kunden und Investoren können sich auf Sie verlassen.</p>
+                </div>
+                <div style="flex:1;min-width:220px;text-align:center;">
+                    <i class="fa-solid fa-heart fa-animated fa-pulse" style="font-size:2.2em;color:#2ecc71;"></i>
+                    <h3 style="margin:12px 0 6px 0;">3. Seelenfrieden</h3>
+                    <p>Automatisierung, Monitoring und Support – Sie können sich auf Ihr Business konzentrieren, wir kümmern uns um den Rest.</p>
+                </div>
+            </div>
+            <div class="footer">
+                <span>⭐ 3 Gründe für uns</span>
             </div>
         </div>
 
