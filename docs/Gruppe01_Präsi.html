@@ -669,7 +669,7 @@
                     <tbody>
                         <tr><td><span style="color:#e94560;"><i class="fa-solid fa-rocket"></i></span> SaaS-Startup, Zeitdruck, Multi-Tenancy auf Infra</td><td><span class="badge" style="background:#e94560;color:#fff;padding:4px 10px;border-radius:8px;font-weight:bold;">Architektur, Action</span></td></tr>
                         <tr><td><span style="color:#f1c40f;"><i class="fa-solid fa-cubes"></i></span> Mind. 3 Services, 1x DB, OAuth2</td><td><span class="badge" style="background:#f1c40f;color:#222;padding:4px 10px;border-radius:8px;font-weight:bold;">Architektur, Action</span></td></tr>
-                        <tr><td><span style="color:#2ecc71;"><i class="fa-solid fa-bolt"></i></span> No-Click-Setup, IaC, GitOps, K8s, Exoscale/AWS</td><td><span class="badge" style="background:#2ecc71;color:#fff;padding:4px 10px;border-radius:8px;font-weight:bold;">Architektur, Action</span></td></tr>
+                        <tr><td><span style="color:#2ecc71;"><i class="fa-solid fa-bolt"></i></span> No-Click-Setup, IaC, GitOps, K8s, Exoscale</td><td><span class="badge" style="background:#2ecc71;color:#fff;padding:4px 10px;border-radius:8px;font-weight:bold;">Architektur, Action</span></td></tr>
                         <tr><td><span style="color:#e91e63;"><i class="fa-solid fa-shield-halved"></i></span> Security by Design</td><td><span class="badge" style="background:#e91e63;color:#fff;padding:4px 10px;border-radius:8px;font-weight:bold;">Action</span></td></tr>
                         <tr><td><span style="color:#3498db;"><i class="fa-solid fa-users"></i></span> Team mit Dev, Ops, Wirtschaft</td><td><span class="badge" style="background:#3498db;color:#fff;padding:4px 10px;border-radius:8px;font-weight:bold;">Intro</span></td></tr>
                         <tr><td><span style="color:#e67e22;"><i class="fa-solid fa-diagram-project"></i></span> Architekturzeichnung & Dokumentation</td><td><span class="badge" style="background:#e67e22;color:#fff;padding:4px 10px;border-radius:8px;font-weight:bold;">Architektur</span></td></tr>
@@ -741,14 +741,14 @@
                     </a>
                     <span style="font-size:2em;">→</span>
                     <div class="skill-item" style="background:linear-gradient(135deg,#3498db,#2980b9);color:#fff;padding:18px 22px 16px 22px;border-radius:14px;min-width:150px;min-height:70px;font-size:1.08em;box-shadow:0 2px 12px 0 rgba(52,152,219,0.10);font-weight:bold;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                        <span class="skill-icon" style="font-size:2em;">☁️</span><strong>Cloud<br>(Exoscale/AWS)</strong>
+                        <span class="skill-icon" style="font-size:2em;">☁️</span><strong>Cloud<br>(Exoscale)</strong>
                     </div>
                 </div>
                 <ul style="margin-top:24px;font-size:1.1em;line-height:1.7;">
                     <li><strong>INENPT-G1-Code:</strong> Enthält die Microservices, Auth, CI/CD Workflows. Entwickler pushen Code, Pipelines bauen & testen automatisch.</li>
-                    <li><strong>INENPT-G1-K8s:</strong> Enthält alle Kubernetes Manifeste, Helm Charts und <code>/infrastructure</code> (Terraform). Hier wird die Infrastruktur als Code verwaltet und neue Tenants können per Git Commit onboarded werden.</li>
+                    <li><strong>INENPT-G1-K8s:</strong> Enthält alle Kubernetes Manifeste, Helm Charts und <code>/infrastructure</code> (Opentofu). Hier wird die Infrastruktur als Code verwaltet und neue Tenants können per Git Commit onboarded werden.</li>
                     <li><strong>INENPT-G1-Argo:</strong> GitOps Controller (ArgoCD) – überwacht die Repos, synchronisiert Deployments, sorgt für No-Click-Setup und Automatisierung.</li>
-                    <li><strong>/infrastructure:</strong> Terraform-Code für Cloud-Ressourcen, Netzwerke, Datenbanken, VMs. Ein Commit reicht, um neue Mandanten oder Ressourcen bereitzustellen.</li>
+                    <li><strong>/infrastructure:</strong> Opentofu-Code für Cloud-Ressourcen, Netzwerke, Datenbanken, VMs. Ein Commit reicht, um neue Mandanten oder Ressourcen bereitzustellen.</li>
                 </ul>
                 <div style="background:#d1ecf1;color:#0c5460;border:1px solid #bee5eb;border-radius:8px;padding:12px;margin:18px 0;font-size:1.05em;text-align:center;">
                     <strong>Ein neuer Tenant? Einfach ein Git Commit – der Rest läuft automatisch!</strong>
@@ -887,9 +887,6 @@
                         <span class="morphin-cell green">⚡</span>
                         <span class="morphin-cell pink">⚡</span>
                     </div>
-                </div>
-                <div style="text-align:center;margin:30px 0;">
-                    <img src="https://raw.githubusercontent.com/MCCE2024/INENPT-G1-Argo/main/docs/argocd-demo.png" alt="ArgoCD Demo" style="max-width:80%;border-radius:12px;margin:18px 0;box-shadow:0 4px 24px 0 rgba(31,38,135,0.37);">
                 </div>
                 <div style="background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; border-radius: 8px; padding: 12px; margin: 18px 0; text-align:center;">
                     <strong>Sehen Sie, wie aus Code, Infrastruktur und GitOps der Megazord entsteht – vollautomatisch!</strong>
@@ -1048,7 +1045,6 @@ user -right-> consumer : Uses Frontend
 consumer -down-> api : API Calls <color:DarkGreen>
 producer -right-> api : Sends Data <color:DarkGreen>
 api -down-> db : Stores Data <color:DarkGreen>
-consumer -right-> db : Reads Data <color:DarkGreen>
 
 ' DevOps/GitOps Flow
 code -down-> k8s : CI/CD <color:RoyalBlue>
@@ -1065,7 +1061,7 @@ code -right-> consumer :  <color:RoyalBlue>
 note right of code #23244a: App Code, CI/CD
 note right of k8s #23244a: K8s Manifeste, Infra as Code
 note right of argo #23244a: GitOps Automation
-note right of cloud: Exoscale/AWS
+note right of cloud: Exoscale
 @enduml`;
             function renderPlantUML(id, uml) {
                 try {
