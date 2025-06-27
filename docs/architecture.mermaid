@@ -1,0 +1,85 @@
+graph TB
+    subgraph "Infrastructure Layer"
+        TF[Terraform<br/>argocd.tf] --> ARGO[ArgoCD<br/>GitOps Controller]
+    end
+    
+    subgraph "Git Repository"
+        GIT[Git Repository<br/>INENPT-G1-Argo]
+    end
+    
+    subgraph "Applications Layer"
+        subgraph "API Service"
+            API_APP[API Application<br/>Node.js Server]
+            API_HELM[Helm Chart<br/>Deployment]
+            API_DOCKER[Docker Container<br/>API Service]
+        end
+        
+        subgraph "Consumer Service"
+            CON_APP[Consumer Application<br/>Web Interface]
+            CON_HELM[Helm Chart<br/>Deployment]
+            CON_DOCKER[Docker Container<br/>Consumer Service]
+            CON_ASSETS[Static Assets<br/>HTML/CSS/JS/Media]
+        end
+        
+        subgraph "Producer Service"
+            PROD_APP[Producer Application<br/>Python Script]
+            PROD_HELM[Helm Chart<br/>CronJob]
+            PROD_DOCKER[Docker Container<br/>Producer Service]
+            PROD_SECRETS[Secrets<br/>Configuration]
+        end
+    end
+    
+    subgraph "Kubernetes Cluster"
+        K8S[Kubernetes<br/>Cluster]
+        K8S_API[API Pod]
+        K8S_CON[Consumer Pod]
+        K8S_PROD[Producer CronJob]
+    end
+    
+    subgraph "External Systems"
+        DB[(Database<br/>or Message Queue)]
+        EXT[External APIs<br/>or Services]
+    end
+    
+    %% Infrastructure Flow
+    TF -->|deploys| ARGO
+    ARGO -->|monitors| GIT
+    
+    %% GitOps Flow
+    GIT -->|triggers| ARGO
+    ARGO -->|deploys| K8S
+    
+    %% Application Deployments
+    API_APP --> API_HELM
+    API_HELM --> API_DOCKER
+    API_DOCKER --> K8S_API
+    
+    CON_APP --> CON_HELM
+    CON_HELM --> CON_DOCKER
+    CON_DOCKER --> K8S_CON
+    CON_ASSETS --> CON_DOCKER
+    
+    PROD_APP --> PROD_HELM
+    PROD_HELM --> PROD_DOCKER
+    PROD_DOCKER --> K8S_PROD
+    PROD_SECRETS --> PROD_HELM
+    
+    %% Runtime Communication
+    K8S_API -.->|API calls| K8S_CON
+    K8S_PROD -.->|produces data| DB
+    K8S_API -.->|consumes data| DB
+    K8S_CON -.->|user interactions| K8S_API
+    K8S_PROD -.->|external calls| EXT
+    
+    %% Styling
+    classDef infrastructure fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef git fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef app fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    classDef k8s fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef external fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    
+    class TF,ARGO infrastructure
+    class GIT git
+    class API_APP,API_HELM,API_DOCKER,CON_APP,CON_HELM,CON_DOCKER,CON_ASSETS,PROD_APP,PROD_HELM,PROD_DOCKER,PROD_SECRETS app
+    class K8S,K8S_API,K8S_CON,K8S_PROD k8s
+    class DB,EXT external
