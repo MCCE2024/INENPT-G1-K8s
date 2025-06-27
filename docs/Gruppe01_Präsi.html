@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚡ Power Rangers DevOps - Team Gruppe 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/plantuml-encoder/dist/plantuml-encoder.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -563,432 +564,364 @@
 <body>
     <div class="slideshow-container">
 
-        <!-- Slide 0: Command Center - Project Overview -->
+        <!-- Slide 0: Command Center - Welcome & Team -->
         <div class="slide active" id="slide-0">
             <div class="header">
                 <h1>⚡ Power Rangers DevOps</h1>
-                <div class="subtitle">Kapitel I: Die Berufung  ArgoCD GitOps Projekt</div>
+                <div class="subtitle">Kapitel I: Die Berufung – Cloud-Native Megazord</div>
                 <div class="meta-info">
                     <strong>Team Gruppe 1 - INEN PT</strong><br>
                     Juni 2025<br>
-                    Projekt: ArgoCD Multi-Service Architecture
+                    Produktpräsentation: Die DevOps Megazord Plattform
                 </div>
+            </div>
+            <div style="background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; border-radius: 8px; padding: 12px; margin: 18px 0; font-size:1.15em; text-align:center;">
+                <strong>Warum jetzt?</strong> <br>
+                <span style="font-size:1.05em;">Cloud-Native SaaS ist der am schnellsten wachsende IT-Markt. Unternehmen müssen schnell, sicher und skalierbar agieren – mit der Power Rangers DevOps Megazord Plattform sind Sie bereit für die Zukunft!</span>
             </div>
             <div class="signpost">
                 <span class="signpost-icon active" title="Command Center">🏛️</span>
-                <span class="signpost-icon" title="Zord Battle">⚔️</span>
-                <span class="signpost-icon" title="Rita's Palace">👹</span>
-                <span class="signpost-icon" title="Victory">🏆</span>
-                <span class="signpost-icon" title="Epilog">🌟</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <h2 class="section-title">Die Power Rangers & ihre Mission</h2>
+            <h2 class="section-title">Willkommen im Command Center</h2>
             <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 30px;">
                 <div style="background: rgba(233, 69, 96, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #e94560; min-width:220px;flex:1;">
                     <div style="display:flex;align-items:center;gap:10px;">
                         <span style="font-size:2em;color:#e94560;">🦸‍♂️</span>
-                        <span>Harald (Red Ranger) - Terraform-Weiser</span>
+                        <span>Harald (Red Ranger) – Terraform-Weiser</span>
                     </div>
                 </div>
                 <div style="background: rgba(233, 30, 99, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #e91e63; min-width:220px;flex:1;">
-                    <div style="display:flex;align-items:center;gap:10px;">🦸‍♀️ <span>Susanne (Pink Ranger) - Security-Expertin</span></div>
+                    <div style="display:flex;align-items:center;gap:10px;">🦸‍♀️ <span>Susanne (Pink Ranger) – Security-Expertin</span></div>
                 </div>
                 <div style="background: rgba(46, 204, 113, 0.1); padding: 15px; border-radius: 12px; border: 2px solid #2ecc71; min-width:220px;flex:1;">
-                    <div style="display:flex;align-items:center;gap:10px;">🦸‍♂️ <span>Patrick (Green Ranger) - Der Retter</span></div>
+                    <div style="display:flex;align-items:center;gap:10px;">🦸‍♂️ <span>Patrick (Green Ranger) – Der Retter</span></div>
                 </div>
                 <div style="background: rgba(120, 119, 198, 0.12); padding: 15px; border-radius: 12px; border: 2px solid #7877c6; min-width:220px;flex:1;">
                     <div style="display:flex;align-items:center;gap:10px;">
                         <span style="font-size:2em;color:#7877c6;">🧑‍🚀</span>
-                        <span>Thomas (Zordon) - Lektor & Mentor</span>
+                        <span>Thomas (Zordon) – Lektor & Mentor</span>
                     </div>
                 </div>
             </div>
             <div style="margin: 30px auto; max-width: 700px;">
-                <h3>Die Mission</h3>
-                <p>Im Command Center wird die Mission beschlossen: Eine moderne GitOps-Infrastruktur mit ArgoCD, erschaffen mit Terraform und geschützt durch 
-                    die Macht der Power Rangers. Die Reise beginnt…</p>
-                <table class="stats-table" style="margin-top:18px;">
-                    <thead>
-                        <tr><th>Bereich</th><th>Technologien</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Frontend</td><td>Consumer Web App (Node.js)</td></tr>
-                        <tr><td>Backend</td><td>API Service (Node.js)</td></tr>
-                        <tr><td>Data Producer</td><td>Python CronJob</td></tr>
-                        <tr><td>Infrastructure</td><td>ArgoCD, Helm, Terraform</td></tr>
-                    </tbody>
-                </table>
+                <h3>Unsere Mission</h3>
+                <p>Wir bringen Unternehmen mit einer sicheren, automatisierten und skalierbaren Cloud-Native Plattform auf das nächste Level. <strong>Vertrauen Sie auf die Power Rangers DevOps Megazord!</strong></p>
             </div>
             <div class="footer">
-                <span>🏛️ Command Center - Die Berufung</span>
+                <span>🏛️ Command Center – Die Berufung</span>
             </div>
         </div>
 
-        <!-- Slide 1: Morphing Sequence - Project Architecture -->
+        <!-- Slide 1: The Challenge -->
         <div class="slide" id="slide-1">
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
-                <span class="signpost-icon active" title="Zord Battle">⚔️</span>
-                <span class="signpost-icon" title="Rita's Palace">👹</span>
-                <span class="signpost-icon" title="Victory">🏆</span>
-                <span class="signpost-icon" title="Epilog">🌟</span>
+                <span class="signpost-icon active" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <div class="morphin-container">
-                <div class="morphin-grid">
-                    <div class="morphin-cell red">⚡</div>
-                    <div class="morphin-cell blue">⚡</div>
-                    <div class="morphin-cell green">⚡</div>
-                    <div class="morphin-cell pink">⚡</div>
-                    <div class="morphin-cell yellow">⚡</div>
-                    <div class="morphin-cell red">⚡</div>
-                    <div class="morphin-cell blue">⚡</div>
-                    <div class="morphin-cell green">⚡</div>
-                    <div class="morphin-cell pink">⚡</div>
-                </div>
-            </div>
-            <h2 class="section-title">Morphing Sequence - Projektarchitektur</h2>
+            <h2 class="section-title">👹 Die Herausforderung</h2>
             <div class="battle-section">
-                <div class="power-rangers-fight">
-                    <h3>⚡ Die Kraft der GitOps-Architektur</h3>
-                    <p>Wie die Power Rangers ihre Kräfte kombinieren, so kombiniert unsere Architektur moderne DevOps-Tools:</p>
-                    <table class="stats-table">
-                        <thead>
-                            <tr><th>Komponente</th><th>Technologie</th><th>Zweck</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>🏗️ Infrastructure</td><td>Terraform</td><td>Infrastructure as Code</td></tr>
-                            <tr><td>🎯 GitOps Controller</td><td>ArgoCD</td><td>Automatische Deployments</td></tr>
-                            <tr><td>📦 Application Packaging</td><td>Helm Charts</td><td>Kubernetes Manifests</td></tr>
-                            <tr><td>🐳 Containerization</td><td>Docker</td><td>Anwendungs-Isolation</td></tr>
-                            <tr><td>☸️ Orchestration</td><td>Kubernetes</td><td>Container-Management</td></tr>
-                        </tbody>
-                    </table>
+                <p>Unternehmen kämpfen mit komplexen Deployments, Sicherheitsrisiken und fehlender Skalierbarkeit. <strong>Legacy-IT</strong> ist wie Rita Repulsa: Sie bringt Chaos und Unsicherheit!</p>
+                <div style="margin: 20px 0; text-align: center;">
+                    <span style="font-size:3em;">👹</span>
                 </div>
-                <div class="power-rangers-fight">
-                    <h3>🔄 Der GitOps-Workflow</h3>
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin: 15px 0;">
-                        <div style="background: rgba(233, 69, 96, 0.2); padding: 10px; border-radius: 8px; text-align: center; flex: 1; min-width: 100px; position: relative; font-size: 0.9em; color: #fff; border: 1px solid #e94560;">
-                            Git Push
-                        </div>
-                        <div style="position: absolute; right: -8px; top: 50%; transform: translateY(-50%); font-size: 14px; color: #e94560;">→</div>
-                        <div style="background: rgba(52, 152, 219, 0.2); padding: 10px; border-radius: 8px; text-align: center; flex: 1; min-width: 100px; position: relative; font-size: 0.9em; color: #fff; border: 1px solid #3498db;">
-                            ArgoCD Sync
-                        </div>
-                        <div style="position: absolute; right: -8px; top: 50%; transform: translateY(-50%); font-size: 14px; color: #e94560;">→</div>
-                        <div style="background: rgba(46, 204, 113, 0.2); padding: 10px; border-radius: 8px; text-align: center; flex: 1; min-width: 100px; position: relative; font-size: 0.9em; color: #fff; border: 1px solid #2ecc71;">
-                            Kubernetes
-                        </div>
-                    </div>
-                    <p>Die Infrastruktur folgt dem GitOps-Prinzip: Alle Konfigurationen werden in Git versioniert und automatisch durch ArgoCD deployed.</p>
+                <div style="background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 8px; padding: 12px; margin: 18px 0;">
+                    <strong>Startups können es sich nicht leisten, Monate mit Infrastruktur zu verbringen. Unsere Plattform bringt Sie in Tagen – nicht Wochen – live!</strong>
+                </div>
+                <div style="background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 8px; padding: 12px; margin: 18px 0;">
+                    <strong>Ohne Automatisierung und Security drohen Ausfälle, Angriffe und verlorene Chancen!</strong>
                 </div>
             </div>
             <div class="footer">
-                <span>⚡ Morphing Sequence - Kapitel II</span>
+                <span>👹 Die Herausforderung</span>
             </div>
         </div>
 
-        <!-- Slide 2: Zord Battle - Constraints & Shortcomings -->
+        <!-- Slide 2: Megazord Architecture – 3-Repo Power -->
         <div class="slide" id="slide-2">
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
-                <span class="signpost-icon active" title="Zord Battle">⚔️</span>
-                <span class="signpost-icon" title="Rita's Palace">👹</span>
-                <span class="signpost-icon" title="Victory">🏆</span>
-                <span class="signpost-icon" title="Epilog">🌟</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon active" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <div class="zord-battle-container">
-                <div class="megazord">
-                    <div class="zord-head">🤖</div>
-                    <div class="zord-body">⚡</div>
-                    <div class="zord-arms">💪</div>
-                </div>
-                <div class="battle-impact">💥</div>
-                <div class="enemy-monster">👹</div>
-            </div>
-            <h2 class="section-title">Zord Battle - Constraints & Shortcomings</h2>
+            <h2 class="section-title">🤖 Megazord Architektur – 3-Repo Power</h2>
             <div class="battle-section">
-                <div class="power-rangers-fight">
-                    <h3>⚔️ Die Herausforderungen des Megazords</h3>
-                    <p>Wie die Power Rangers mit ihren Zords kämpfen, so kämpfen wir mit technischen Herausforderungen:</p>
-                    <table class="stats-table">
-                        <thead>
-                            <tr><th>Constraint</th><th>Auswirkung</th><th>Status</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>🔒 Kubernetes Expertise</td><td>Begrenzte Erfahrung mit K8s</td><td style="color: #ff9800;">⚠️ LERNEND</td></tr>
-                            <tr><td>⏱️ Zeitdruck</td><td>Semester-Zeitplan</td><td style="color: #ff5722;">🔥 KRITISCH</td></tr>
-                            <tr><td>🛠️ Tool-Komplexität</td><td>ArgoCD + Helm + Terraform</td><td style="color: #ff9800;">⚠️ HERAUSFORDERND</td></tr>
-                            <tr><td>🌐 Netzwerk-Konfiguration</td><td>Ingress & Service Mesh</td><td style="color: #4caf50;">✅ GELÖST</td></tr>
-                        </tbody>
-                    </table>
+                <div style="display:flex;justify-content:center;gap:30px;align-items:center;flex-wrap:wrap;">
+                    <a href="https://github.com/MCCE2024/INENPT-G1-Code" target="_blank" style="text-decoration:none;">
+                        <div class="skill-item"><span class="skill-icon">📦</span><strong>INENPT-G1-Code<br>Application Zord</strong></div>
+                    </a>
+                    <span style="font-size:2em;">➕</span>
+                    <a href="https://github.com/MCCE2024/INENPT-G1-K8s" target="_blank" style="text-decoration:none;">
+                        <div class="skill-item"><span class="skill-icon">🏗️</span><strong>INENPT-G1-K8s<br>Infrastructure Zord</strong></div>
+                    </a>
+                    <span style="font-size:2em;">➕</span>
+                    <a href="https://github.com/MCCE2024/INENPT-G1-Argo" target="_blank" style="text-decoration:none;">
+                        <div class="skill-item"><span class="skill-icon">⚡</span><strong>INENPT-G1-Argo<br>GitOps Zord</strong></div>
+                    </a>
+                    <span style="font-size:2em;">=</span>
+                    <div class="skill-item"><span class="skill-icon">🤖</span><strong>DevOps Megazord</strong></div>
                 </div>
-                <div class="power-rangers-fight">
-                    <h3>🎯 Identifizierte Schwachstellen</h3>
-                    <div class="weakness-list">
-                        <div class="weakness-item">
-                            <span class="weakness-icon">🔍</span>
-                            <div>
-                                <strong>Monitoring & Observability</strong><br>
-                                <em>Fehlende Metriken und Logging-Strategie</em>
-                            </div>
-                        </div>
-                        <div class="weakness-item">
-                            <span class="weakness-icon">🛡️</span>
-                            <div>
-                                <strong>Security Hardening</strong><br>
-                                <em>Pod Security Policies nicht implementiert</em>
-                            </div>
-                        </div>
-                        <div class="weakness-item">
-                            <span class="weakness-icon">📊</span>
-                            <div>
-                                <strong>Performance Testing</strong><br>
-                                <em>Keine Lasttests für die Anwendungen</em>
-                            </div>
-                        </div>
-                        <div class="weakness-item">
-                            <span class="weakness-icon">🔄</span>
-                            <div>
-                                <strong>Rollback-Strategie</strong><br>
-                                <em>Automatisierte Rollbacks nicht vollständig</em>
-                            </div>
-                        </div>
-                    </div>
+                <p style="text-align:center;margin-top:18px;">
+                    <em>Jedes Zord ist stark – gemeinsam sind sie unschlagbar!</em>
+                </p>
+                <div style="background: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; border-radius: 8px; padding: 12px; margin: 18px 0; font-size:1.05em;">
+                    <strong>Legend:</strong><br>
+                    <span style="color:#27ae60;">📦 INENPT-G1-Code:</span> Microservices, Auth, CI/CD<br>
+                    <span style="color:#2980b9;">🏗️ INENPT-G1-K8s:</span> Infrastruktur, Kubernetes, DB<br>
+                    <span style="color:#e94560;">⚡ INENPT-G1-Argo:</span> GitOps, Helm, Automatisierung
                 </div>
+                <div id="plantuml-arch" style="margin: 30px auto; max-width: 700px; text-align:center;"></div>
             </div>
             <div class="footer">
-                <span>⚔️ Zord Battle - Kapitel III</span>
+                <span>🤖 Megazord Architektur</span>
             </div>
         </div>
 
-        <!-- Slide 3: Rita's Palace - Missing Topics -->
+        <!-- Slide 3: Technical Achievements -->
         <div class="slide" id="slide-3">
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
-                <span class="signpost-icon" title="Zord Battle">⚔️</span>
-                <span class="signpost-icon active" title="Rita's Palace">👹</span>
-                <span class="signpost-icon" title="Victory">🏆</span>
-                <span class="signpost-icon" title="Epilog">🌟</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon active" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <div class="ritas-palace-container">
-                <div class="palace-tower">🏰</div>
-                <div class="evil-energy">💀</div>
-                <div class="dark-clouds">☁️</div>
-            </div>
-            <h2 class="section-title">Rita's Palace - Missing Topics & Future Missions</h2>
+            <h2 class="section-title">⚡ Technische Heldentaten</h2>
             <div class="battle-section">
-                <div class="power-rangers-fight">
-                    <h3>👹 Die dunklen Bereiche der DevOps-Welt</h3>
-                    <p>Wie Rita Repulsa neue Monster erschafft, so entdecken wir neue Herausforderungen:</p>
-                    <table class="validation-table">
-                        <thead>
-                            <tr><th>Missing Topic</th><th>Bedeutung</th><th>Priorität</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>🔍 Service Mesh (Istio)</td><td>Microservices-Kommunikation</td><td style="color: #ff5722;">🔥 HOCH</td></tr>
-                            <tr><td>📈 Prometheus + Grafana</td><td>Monitoring & Alerting</td><td style="color: #ff9800;">⚠️ MITTEL</td></tr>
-                            <tr><td>🔐 Vault Integration</td><td>Secret Management</td><td style="color: #ff9800;">⚠️ MITTEL</td></tr>
-                            <tr><td>🌐 Multi-Cluster Setup</td><td>High Availability</td><td style="color: #4caf50;">✅ NIEDRIG</td></tr>
-                            <tr><td>🧪 Chaos Engineering</td><td>Resilienz-Tests</td><td style="color: #4caf50;">✅ NIEDRIG</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="power-rangers-fight">
-                    <h3>🚀 Nächste Missionen für das Team</h3>
-                    <div class="mission-list">
-                        <div class="mission-item">
-                            <span class="mission-icon">🔍</span>
-                            <div>
-                                <strong>Observability Stack</strong><br>
-                                <em>Implementierung von ELK Stack oder Prometheus</em>
-                            </div>
-                        </div>
-                        <div class="mission-item">
-                            <span class="mission-icon">🛡️</span>
-                            <div>
-                                <strong>Security Scanning</strong><br>
-                                <em>Trivy für Container-Scans, Falco für Runtime</em>
-                            </div>
-                        </div>
-                        <div class="mission-item">
-                            <span class="mission-icon">⚡</span>
-                            <div>
-                                <strong>Performance Optimization</strong><br>
-                                <em>Resource Limits, HPA, VPA</em>
-                            </div>
-                        </div>
-                        <div class="mission-item">
-                            <span class="mission-icon">🌍</span>
-                            <div>
-                                <strong>Multi-Environment</strong><br>
-                                <em>Dev, Staging, Production Workflows</em>
-                            </div>
-                        </div>
-                    </div>
+                <ul style="font-size:1.1em;line-height:1.7;">
+                    <li><strong>Automatisierte Infrastruktur:</strong> Terraform auf Exoscale (Red Ranger)</li>
+                    <li><strong>Sichere Multi-Tenancy:</strong> Namespaces, Secrets, GitHub OAuth (Pink Ranger)</li>
+                    <li><strong>Continuous Delivery:</strong> ArgoCD GitOps, Helm, No-Click-Setup (Green Ranger)</li>
+                    <li><strong>CI/CD Pipelines:</strong> Automatisierte Builds, Tests und Deployments (Alle Rangers)</li>
+                    <li><strong>Multi-Tenancy ohne Code-Änderung:</strong> Die Mandantenfähigkeit wird auf Infrastrukturebene gelöst – Sie können sich auf Features konzentrieren!</li>
+                </ul>
+                <div style="background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; border-radius: 8px; padding: 12px; margin: 18px 0;">
+                    <strong>Unsere Lösung ist produktionsreif, sicher und wächst mit Ihrem Business!</strong>
                 </div>
             </div>
             <div class="footer">
-                <span>👹 Rita's Palace - Kapitel IV</span>
+                <span>⚡ Technische Heldentaten</span>
             </div>
         </div>
 
-        <!-- Slide 4: Victory - Project Success -->
+        <!-- Slide 4: Customer Journey -->
         <div class="slide" id="slide-4">
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
-                <span class="signpost-icon" title="Zord Battle">⚔️</span>
-                <span class="signpost-icon" title="Rita's Palace">👹</span>
-                <span class="signpost-icon active" title="Victory">🏆</span>
-                <span class="signpost-icon" title="Epilog">🌟</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon active" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <div class="victory-container">
-                <div class="power-rangers-victory">
-                    <span class="ranger red">🦸‍♂️</span>
-                    <span class="ranger blue">🦸‍♂️</span>
-                    <span class="ranger green">🦸‍♂️</span>
-                    <span class="ranger pink">🦸‍♀️</span>
-                </div>
-                <div class="victory-energy">✨</div>
-            </div>
-            <h2 class="section-title">Victory - Project Achievements</h2>
+            <h2 class="section-title">🧭 Die Customer Journey</h2>
             <div class="battle-section">
-                <div class="power-rangers-fight">
-                    <h3>🏆 Erfolgreich abgeschlossene Missionen</h3>
-                    <table class="stats-table">
-                        <thead>
-                            <tr><th>Achievement</th><th>Status</th><th>Impact</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>✅ GitOps Workflow</td><td style="color: #4caf50;">ERFOLGREICH</td><td>Automatisierte Deployments</td></tr>
-                            <tr><td>✅ Multi-Service Architecture</td><td style="color: #4caf50;">ERFOLGREICH</td><td>Skalierbare Anwendungen</td></tr>
-                            <tr><td>✅ Infrastructure as Code</td><td style="color: #4caf50;">ERFOLGREICH</td><td>Versionierte Infrastruktur</td></tr>
-                            <tr><td>✅ CI/CD Pipeline</td><td style="color: #4caf50;">ERFOLGREICH</td><td>Kontinuierliche Integration</td></tr>
-                        </tbody>
-                    </table>
+                <ol style="font-size:1.1em;line-height:1.7;">
+                    <li><strong>Code Push:</strong> Entwickler committen zu <a href="https://github.com/MCCE2024/INENPT-G1-Code" target="_blank">INENPT-G1-Code</a></li>
+                    <li><strong>CI/CD:</strong> Automatischer Build & Test, Images landen im Registry</li>
+                    <li><strong>Infrastruktur:</strong> <a href="https://github.com/MCCE2024/INENPT-G1-K8s" target="_blank">INENPT-G1-K8s</a> provisioniert und verwaltet die Cloud</li>
+                    <li><strong>GitOps:</strong> <a href="https://github.com/MCCE2024/INENPT-G1-Argo" target="_blank">INENPT-G1-Argo</a> deployed und synchronisiert alles automatisch</li>
+                </ol>
+                <div style="background: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; border-radius: 8px; padding: 12px; margin: 18px 0;">
+                    <strong>Keine manuellen Schritte. Keine Downtime. 100% Nachvollziehbarkeit.</strong>
                 </div>
-                <div class="power-rangers-fight">
-                    <h3>🎯 Gelernte Fähigkeiten</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <span class="skill-icon">🐳</span>
-                            <strong>Docker & Containerization</strong>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon">☸️</span>
-                            <strong>Kubernetes Orchestration</strong>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon">⚡</span>
-                            <strong>ArgoCD GitOps</strong>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon">📦</span>
-                            <strong>Helm Charts</strong>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon">🏗️</span>
-                            <strong>Terraform Infrastructure</strong>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-icon">🔄</span>
-                            <strong>CI/CD Best Practices</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="finale">
-                <h2>🎉 Mission Accomplished!</h2>
-                <h3>Die Power Rangers haben erfolgreich die DevOps-Welt beschützt!</h3>
-                <p>Durch Teamwork, Mut und technisches Können wurde eine moderne, skalierbare Infrastruktur erschaffen.</p>
+                <div style="background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; border-radius: 8px; padding: 12px; margin: 18px 0; font-size:1.05em; text-align:center;">
+                    <strong>Time to Value:</strong> <br>Von Code zu Produktion in unter 10 Minuten – vollautomatisch, wie ein echter Power Ranger!</div>
             </div>
             <div class="footer">
-                <span>🏆 Victory - Kapitel V</span>
+                <span>🧭 Customer Journey</span>
             </div>
         </div>
 
-        <!-- Slide 5: Epilog - Lessons Learned -->
+        <!-- Slide 5: Security & Trust -->
         <div class="slide" id="slide-5">
             <div class="signpost">
                 <span class="signpost-icon" title="Command Center">🏛️</span>
-                <span class="signpost-icon" title="Zord Battle">⚔️</span>
-                <span class="signpost-icon" title="Rita's Palace">👹</span>
-                <span class="signpost-icon" title="Victory">🏆</span>
-                <span class="signpost-icon active" title="Epilog">🌟</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon active" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
             </div>
-            <div class="epilog-container">
-                <div class="morphin-grid">
-                    <span class="morphin-cell red">⚡</span>
-                    <span class="morphin-cell blue">⚡</span>
-                    <span class="morphin-cell green">⚡</span>
-                    <span class="morphin-cell pink">⚡</span>
-                </div>
-            </div>
-            <h2 class="section-title">Epilog - Lessons Learned & Future Missions</h2>
+            <h2 class="section-title">🛡️ Sicherheit & Vertrauen</h2>
             <div class="battle-section">
-                <div class="power-rangers-fight">
-                    <h3>🌟 Wichtige Erkenntnisse</h3>
-                    <div class="lessons-list">
-                        <div class="lesson-item">
-                            <span class="lesson-icon">🤝</span>
-                            <div>
-                                <strong>Teamwork ist entscheidend</strong><br>
-                                <em>Komplexe DevOps-Projekte erfordern Zusammenarbeit</em>
-                            </div>
-                        </div>
-                        <div class="lesson-item">
-                            <span class="lesson-icon">📚</span>
-                            <div>
-                                <strong>Kontinuierliches Lernen</strong><br>
-                                <em>Die DevOps-Welt entwickelt sich ständig weiter</em>
-                            </div>
-                        </div>
-                        <div class="lesson-item">
-                            <span class="lesson-icon">🔧</span>
-                            <div>
-                                <strong>Pragmatischer Ansatz</strong><br>
-                                <em>Perfektion ist der Feind des Fortschritts</em>
-                            </div>
-                        </div>
-                        <div class="lesson-item">
-                            <span class="lesson-icon">📊</span>
-                            <div>
-                                <strong>Monitoring von Anfang an</strong><br>
-                                <em>Observability sollte von Beginn an geplant werden</em>
-                            </div>
-                        </div>
-                    </div>
+                <ul style="font-size:1.1em;line-height:1.7;">
+                    <li><strong>Zero-Trust Security:</strong> Netzwerk-Policies, Secrets, OAuth2</li>
+                    <li><strong>Automatisierte Backups:</strong> PostgreSQL Managed Service</li>
+                    <li><strong>Observability:</strong> Monitoring, Logging, Troubleshooting-Skripte</li>
+                    <li><strong>Compliance Ready:</strong> Bereit für GDPR, SOC2 & Co – Sicherheit und Auditierbarkeit by Design!</li>
+                </ul>
+                <div style="background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 8px; padding: 12px; margin: 18px 0;">
+                    <strong>Sicherheit ist kein Add-on – sie ist in jeder Schicht integriert!</strong>
                 </div>
-                <div class="power-rangers-fight">
-                    <h3>🚀 Nächste Abenteuer</h3>
-                    <div class="future-missions">
-                        <div class="mission-card">
-                            <h4>🌐 Multi-Cloud Strategy</h4>
-                            <p>Erkundung von Hybrid-Cloud-Ansätzen</p>
-                        </div>
-                        <div class="mission-card">
-                            <h4>🤖 AI/ML Integration</h4>
-                            <p>Machine Learning in der DevOps-Pipeline</p>
-                        </div>
-                        <div class="mission-card">
-                            <h4>🔒 Zero Trust Security</h4>
-                            <p>Moderne Sicherheitsarchitekturen</p>
-                        </div>
-                        <div class="mission-card">
-                            <h4>⚡ Serverless Evolution</h4>
-                            <p>Nächste Generation der Serverless-Architektur</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="finale">
-                <h2>🌟 "It's Morphin Time!"</h2>
-                <h3>Die Power Rangers sind bereit für neue Herausforderungen!</h3>
-                <p><strong>Team Gruppe 1</strong> - Bereit für die nächste DevOps-Mission! 🚀</p>
             </div>
             <div class="footer">
-                <p><em>Erstellt mit der Kraft der Power Rangers</em></p>
-                <p><strong>INEN PT - MCCE Semester 2</strong></p>
-                <p><strong>Team: Harald, Susanne, Patrick</strong> ⚡</p>
-                <span><i class="fa-solid fa-star"></i> Go Go Power Rangers!</span>
+                <span>🛡️ Sicherheit & Vertrauen</span>
+            </div>
+        </div>
+
+        <!-- Slide 6: Use Cases -->
+        <div class="slide" id="slide-6">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon active" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
+            </div>
+            <h2 class="section-title">🌍 Real-World Use Cases</h2>
+            <div class="battle-section">
+                <ul style="font-size:1.1em;line-height:1.7;">
+                    <li><strong>E-Commerce:</strong> Multi-Tenant Order Management</li>
+                    <li><strong>IoT:</strong> Sichere Device Data Pipelines</li>
+                    <li><strong>SaaS:</strong> Skalierbare, isolierte Kundenumgebungen</li>
+                </ul>
+                <div style="background: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 8px; padding: 12px; margin: 18px 0;">
+                    <strong>Unsere Plattform passt sich Ihrem Business an – egal in welcher Branche! <br> Für Startups <span style="color:#e94560;">&</span> Enterprises.</strong>
+                </div>
+            </div>
+            <div class="footer">
+                <span>🌍 Use Cases</span>
+            </div>
+        </div>
+
+        <!-- Slide 7: Demo -->
+        <div class="slide" id="slide-7">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon active" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
+            </div>
+            <h2 class="section-title">🎬 Live Demo & Screenshots</h2>
+            <div class="battle-section">
+                <p>Sehen Sie die Power Rangers DevOps Plattform in Aktion: ArgoCD UI, automatisierte Deployments, Monitoring Dashboards, Code-Snippets.</p>
+                <div style="text-align:center;">
+                    <img src="https://raw.githubusercontent.com/MCCE2024/INENPT-G1-Argo/main/docs/argocd-demo.png" alt="ArgoCD Demo" style="max-width:80%;border-radius:12px;margin:18px 0;box-shadow:0 4px 24px 0 rgba(31,38,135,0.37);">
+                    <div style="margin-top:18px;">
+                        <em>🔄 <strong>Live-Animation:</strong> (Hier könnte ein GIF oder eine Animation eines Deployments stehen!)</em>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <span>🎬 Demo</span>
+            </div>
+        </div>
+
+        <!-- Slide 8: Testimonials -->
+        <div class="slide" id="slide-8">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon active" title="Testimonials">💬</span>
+                <span class="signpost-icon" title="Future & Call to Action">🚀</span>
+            </div>
+            <h2 class="section-title">💬 Kundenstimmen</h2>
+            <div class="battle-section">
+                <blockquote style="font-size:1.2em;line-height:1.6;border-left:4px solid #e94560;padding-left:18px;margin:18px 0;">
+                    „Mit Power Rangers DevOps sind unsere Deployments 10x schneller und 100% zuverlässig!“<br>
+                    <span style="font-size:0.9em;color:#888;">– Glücklicher Kunde</span>
+                </blockquote>
+                <blockquote style="font-size:1.2em;line-height:1.6;border-left:4px solid #3498db;padding-left:18px;margin:18px 0;">
+                    „Endlich eine Plattform, der wir vertrauen können – Sicherheit und Automatisierung in Perfektion.“<br>
+                    <span style="font-size:0.9em;color:#888;">– CTO, SaaS Startup</span>
+                </blockquote>
+                <div style="margin-top:24px;text-align:center;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" style="height:32px;margin:0 12px;vertical-align:middle;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="TV Logo" style="height:32px;margin:0 12px;vertical-align:middle;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo" style="height:32px;margin:0 12px;vertical-align:middle;">
+                    <em style="display:block;margin-top:8px;color:#888;">(Logos als Social Proof – Platzhalter für echte Kunden!)</em>
+                </div>
+            </div>
+            <div class="footer">
+                <span>💬 Testimonials</span>
+            </div>
+        </div>
+
+        <!-- Slide 9: Future & Call to Action -->
+        <div class="slide" id="slide-9">
+            <div class="signpost">
+                <span class="signpost-icon" title="Command Center">🏛️</span>
+                <span class="signpost-icon" title="The Challenge">👹</span>
+                <span class="signpost-icon" title="Megazord Architecture">🤖</span>
+                <span class="signpost-icon" title="Technical Achievements">⚡</span>
+                <span class="signpost-icon" title="Customer Journey">🧭</span>
+                <span class="signpost-icon" title="Security & Trust">🛡️</span>
+                <span class="signpost-icon" title="Use Cases">🌍</span>
+                <span class="signpost-icon" title="Demo">🎬</span>
+                <span class="signpost-icon" title="Testimonials">💬</span>
+                <span class="signpost-icon active" title="Future & Call to Action">🚀</span>
+            </div>
+            <h2 class="section-title">🚀 Zukunft & Call to Action</h2>
+            <div class="battle-section">
+                <ul style="font-size:1.1em;line-height:1.7;">
+                    <li><strong>Roadmap:</strong> Monitoring, Service Mesh, Advanced Security, Multi-Cloud</li>
+                    <li><strong>Mitmachen:</strong> Werden Sie Teil der Power Rangers DevOps Community!</li>
+                </ul>
+                <div style="background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 8px; padding: 12px; margin: 18px 0;">
+                    <strong>Bereit, mit den Power Rangers Ihre Cloud zu transformieren? <br> <a href="https://github.com/MCCE2024/INENPT-G1-Code" target="_blank">INENPT-G1-Code</a> | <a href="https://github.com/MCCE2024/INENPT-G1-K8s" target="_blank">INENPT-G1-K8s</a> | <a href="https://github.com/MCCE2024/INENPT-G1-Argo" target="_blank">INENPT-G1-Argo</a></strong>
+                    <br><br>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/MCCE2024/INENPT-G1-Argo" alt="QR Code to GitHub" style="margin-top:8px;">
+                </div>
+                <div style="text-align:center;margin-top:18px;font-size:1.2em;color:#e94560;font-weight:bold;">
+                    It's Morphin Time for your cloud journey!
+                </div>
+            </div>
+            <div class="footer">
+                <span>🚀 Zukunft & Call to Action</span>
             </div>
         </div>
 
@@ -1051,6 +984,30 @@
         });
 
         showSlide(currentSlide);
+
+        // PlantUML diagram for Megazord architecture
+        const plantumlArch = `@startuml
+!theme spacelab
+actor "Customer" as customer
+cloud "Cloud Provider (Exoscale)" as exo
+package "DevOps Megazord" {
+  [INENPT-G1-Code] as code #palegreen
+  [INENPT-G1-K8s] as k8s #skyblue
+  [INENPT-G1-Argo] as argo #pink
+}
+customer --> code : Push Code
+code --> argo : CI/CD Pipeline
+k8s --> argo : Cluster & Infra
+argo --> k8s : GitOps Sync
+argo --> exo : Deploy Apps
+k8s --> exo : Provision Infra
+@enduml`;
+        function renderPlantUML(id, uml) {
+            const encoded = plantumlEncoder.encode(uml);
+            const url = `https://www.plantuml.com/plantuml/svg/${encoded}`;
+            document.getElementById(id).innerHTML = `<img src="${url}" alt="Megazord Architektur Diagramm" style="max-width:100%;border-radius:8px;box-shadow:0 4px 24px 0 rgba(31,38,135,0.17);margin-top:18px;">`;
+        }
+        renderPlantUML('plantuml-arch', plantumlArch);
     </script>
 </body>
 </html> 
