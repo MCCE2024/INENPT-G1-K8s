@@ -1,7 +1,10 @@
 # INENPT-G1-K8s: Infrastructure as Code Repository
 
+03.07.2025
+
 > **Part 2 of 3: Infrastructure Foundation** 🏗️  
 > This repository contains the **Infrastructure as Code (IaC)** components of our multi-tenant cloud-native application. It's designed to work seamlessly with our [Application Code Repository](https://github.com/MCCE2024/INENPT-G1-Code) and [ArgoCD GitOps Repository](https://github.com/MCCE2024/INENPT-G1-Argo) to create a complete GitOps pipeline.
+> We worked mostly via the Liveshare extension, so there can often be uneven pushes in the Git repository.
 
 ## 🧭 Repository Navigation Guide
 
@@ -50,9 +53,11 @@
 > This repository is the **infrastructure backbone** of the project. It is not intended for application code or deployment manifests—those are managed in the other two repositories.
 
 ### **Primary Responsibility**
+
 This repository serves as the **infrastructure foundation** for our multi-tenant application. It uses **Terraform/OpenTofu** to provision and manage all cloud infrastructure components on Exoscale Cloud.
 
 ### **In the 3-Repository Strategy**
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    COMPLETE GITOPS PIPELINE                 │
@@ -69,7 +74,7 @@ This repository serves as the **infrastructure foundation** for our multi-tenant
 ```
 
 > [!TIP]
-> For a smooth workflow, always start with this repository to provision infrastructure before deploying applications or configuring GitOps.
+> For a smooth workflow, always start with this repository to provision infrastructure. Once the infrastructure is ready, the other repositories will automatically deploy applications via GitOps.
 
 **This Repository's Role**: Provides the **production-ready infrastructure** that hosts our applications and enables GitOps workflows.
 
@@ -79,16 +84,19 @@ This repository serves as the **infrastructure foundation** for our multi-tenant
 > Each repository in the 3-repo strategy has a distinct role. Mixing responsibilities can lead to confusion and deployment errors.
 
 ### **Repository 1: [INENPT-G1-Code](https://github.com/MCCE2024/INENPT-G1-Code)**
+
 - **Purpose**: Application source code and CI/CD pipelines
 - **Contains**: Node.js applications, Docker configurations, GitHub Actions
 - **Output**: Container images pushed to GitHub Container Registry
 
 ### **Repository 2: [INENPT-G1-K8s] (This Repository)**
-- **Purpose**: Infrastructure as Code and Kubernetes resources
-- **Contains**: Terraform configurations, Kubernetes manifests, Helm charts
-- **Output**: Production-ready Kubernetes cluster with all supporting services
+
+- **Purpose**: Infrastructure as Code foundation
+- **Contains**: Terraform configurations for cloud infrastructure
+- **Output**: Production-ready Kubernetes cluster and database
 
 ### **Repository 3: [INENPT-G1-Argo](https://github.com/MCCE2024/INENPT-G1-Argo)**
+
 - **Purpose**: GitOps deployment and application lifecycle management
 - **Contains**: ArgoCD configurations, Helm charts, deployment manifests
 - **Output**: Automated application deployment and continuous sync
@@ -99,20 +107,22 @@ This repository serves as the **infrastructure foundation** for our multi-tenant
 > All infrastructure is provisioned using code—no manual steps are required for cloud resource creation.
 
 ### **Infrastructure Components**
+
 ✅ **Managed Kubernetes Cluster (SKS)** - Production-ready K8s cluster  
 ✅ **Managed PostgreSQL Database** - Multi-tenant data persistence  
 ✅ **Security Groups & Network Policies** - Zero-trust security model  
 ✅ **Load Balancers & Ingress** - Traffic management and routing  
 ✅ **Monitoring & Logging** - Observability infrastructure  
-✅ **Secrets Management** - Secure credential storage  
+✅ **Secrets Management** - Secure credential storage
 
 ### **Course Requirements Met**
+
 ✅ **3+ Microservices** - API, Consumer, Producer services  
 ✅ **OAuth2 Authentication** - GitHub OAuth integration  
 ✅ **Multi-tenancy** - Namespace isolation and tenant management  
 ✅ **No-click Setup** - Fully automated infrastructure provisioning  
 ✅ **Kubernetes Deployment** - Production-grade cluster configuration  
-✅ **Security-First Design** - Comprehensive security policies  
+✅ **Security-First Design** - Comprehensive security policies
 
 ## 📁 Repository Structure
 
@@ -125,23 +135,14 @@ INENPT-G1-K8s/
 │   ├── main.tf                       # Main Terraform configuration
 │   ├── variables.tf                  # Variable definitions
 │   ├── terraform.tfvars.example      # Configuration template
-│   └── outputs.tf                    # Infrastructure outputs
-├── applications/                     # Application manifests
-│   ├── api/                         # API service configuration
-│   ├── consumer/                    # Consumer service configuration
-│   ├── producer/                    # Producer service configuration
-│   └── argocd/                      # ArgoCD installation
-├── helm-charts/                     # Helm charts for services
-│   ├── api/                         # API service chart
-│   ├── consumer/                    # Consumer service chart
-│   └── producer/                    # Producer service chart
-├── docs/                           # Documentation
-│   ├── architecture.md             # System architecture
-│   ├── tenant-onboarding.md        # Multi-tenancy guide
-│   └── security.md                 # Security configuration
-└── scripts/                        # Utility scripts
-    ├── setup-cluster.sh            # Cluster setup automation
-    └── tenant-provisioning.sh      # Tenant onboarding
+│   └── outputs.tf                    # Infrastructure outputs (in main.tf)
+├── docs/                            # Documentation
+│   ├── architecture.mermaid         # System architecture diagram
+│   ├── konzept.puml                 # PlantUML architecture
+│   ├── konzept.png                  # Architecture visualization
+│   ├── Konzept_Gruppe01.pdf         # Project concept document
+│   └── Gruppe01_Präsi.html          # Presentation slides
+└── .gitignore                       # Git ignore patterns
 ```
 
 ## 🛠️ Infrastructure Components
@@ -150,6 +151,7 @@ INENPT-G1-K8s/
 > All resources are provisioned in Exoscale Cloud. Make sure your API credentials are valid and have sufficient permissions.
 
 ### **1. Exoscale SKS Kubernetes Cluster**
+
 ```hcl
 resource "exoscale_sks_cluster" "k8s_cluster" {
   name        = "${var.project_name}-sks-cluster"
@@ -163,6 +165,7 @@ resource "exoscale_sks_cluster" "k8s_cluster" {
 **Learning Value**: Understanding managed Kubernetes services vs. self-hosted clusters.
 
 ### **2. Managed PostgreSQL Database**
+
 ```hcl
 resource "exoscale_dbaas" "postgresql" {
   name = "${var.project_name}-postgresql"
@@ -178,6 +181,7 @@ resource "exoscale_dbaas" "postgresql" {
 **Learning Value**: Database-as-a-Service concepts and multi-tenant data isolation.
 
 ### **3. Security Groups & Network Policies**
+
 ```hcl
 resource "exoscale_security_group" "sks" {
   name = "${var.project_name}-sks-sg"
@@ -193,12 +197,14 @@ resource "exoscale_security_group" "sks" {
 > Double-check your `terraform.tfvars` for secrets and sensitive data before committing. Never share your API keys or OAuth secrets publicly!
 
 ### **Prerequisites**
+
 - Terraform/OpenTofu >= 1.0
 - Exoscale Cloud account
-   - kubectl configured
+- kubectl configured
 - GitHub OAuth application
 
 ### **Step 1: Configure Environment**
+
 ```bash
 # Copy configuration template
 cp infrastructure/terraform.tfvars.example infrastructure/terraform.tfvars
@@ -208,8 +214,9 @@ nano infrastructure/terraform.tfvars
 ```
 
 ### **Step 2: Deploy Infrastructure**
-   ```bash
-   cd infrastructure
+
+```bash
+cd infrastructure
 
 # Initialize Terraform
 terraform init
@@ -222,7 +229,8 @@ terraform apply
 ```
 
 ### **Step 3: Configure Kubernetes Access**
-   ```bash
+
+```bash
 # Get cluster credentials
 exo compute sks kubeconfig inenpt-g1-sks-cluster \
     --zone at-vie-1 \
@@ -233,14 +241,18 @@ exo compute sks kubeconfig inenpt-g1-sks-cluster \
 kubectl get nodes
 ```
 
-### **Step 4: Deploy Applications**
-   ```bash
-# Apply Kubernetes manifests
-kubectl apply -f applications/
+### **Step 4: Verify Infrastructure**
 
-# Install ArgoCD
-   kubectl apply -f applications/argocd/
-   ```
+```bash
+# Verify cluster is ready for application deployment
+kubectl get nodes
+kubectl get namespaces
+
+# Check that the infrastructure is ready for GitOps
+# The actual application deployment will be handled by:
+# - INENPT-G1-Code: Application source code and CI/CD pipelines
+# - INENPT-G1-Argo: GitOps deployment with ArgoCD
+```
 
 > [!CAUTION]
 > If you destroy the infrastructure, all data in the managed PostgreSQL instance will be lost unless backups are configured and restored.
@@ -248,9 +260,10 @@ kubectl apply -f applications/
 ## 🔗 Integration with Other Repositories
 
 > [!NOTE]
-> This repository is **not** responsible for building or pushing application images. That is handled by [INENPT-G1-Code](https://github.com/MCCE2024/INENPT-G1-Code).
+> This repository is **only** responsible for infrastructure provisioning. Application deployment, Helm charts, and Kubernetes manifests are handled by the other repositories in the GitOps pipeline.
 
 ### **Integration with [INENPT-G1-Code](https://github.com/MCCE2024/INENPT-G1-Code)**
+
 ```yaml
 # GitHub Actions workflow in INENPT-G1-Code
 - name: Deploy to Kubernetes
@@ -261,6 +274,7 @@ kubectl apply -f applications/
 **Connection**: This repository provides the Kubernetes cluster where container images from INENPT-G1-Code are deployed.
 
 ### **Integration with [INENPT-G1-Argo](https://github.com/MCCE2024/INENPT-G1-Argo)**
+
 ```yaml
 # ArgoCD Application in INENPT-G1-Argo
 apiVersion: argoproj.io/v1alpha1
@@ -273,7 +287,7 @@ spec:
     path: helm-charts/api
 ```
 
-**Connection**: This repository provides the Helm charts and Kubernetes manifests that ArgoCD deploys.
+**Connection**: This repository provides the Kubernetes cluster and database that ArgoCD uses for application deployment. No Helm charts or manifests are stored here.
 
 ## 📊 Learning Objectives & Course Requirements
 
@@ -281,28 +295,32 @@ spec:
 > Review this section to ensure your project submission meets all course requirements and learning goals.
 
 ### **Infrastructure as Code (IaC)**
+
 ✅ **Terraform/OpenTofu Mastery** - Declarative infrastructure definition  
 ✅ **Cloud Provider Integration** - Exoscale Cloud platform usage  
 ✅ **State Management** - Infrastructure state tracking and versioning  
-✅ **Modular Design** - Reusable infrastructure components  
+✅ **Modular Design** - Reusable infrastructure components
 
 ### **Kubernetes & Container Orchestration**
+
 ✅ **Cluster Management** - SKS cluster configuration and optimization  
 ✅ **Resource Provisioning** - CPU, memory, and storage allocation  
 ✅ **Network Policies** - Pod-to-pod communication control  
-✅ **Security Groups** - Network-level security implementation  
+✅ **Security Groups** - Network-level security implementation
 
 ### **Multi-Tenancy & Security**
+
 ✅ **Namespace Isolation** - Tenant separation at Kubernetes level  
 ✅ **Resource Quotas** - Per-tenant resource limits  
 ✅ **Network Segmentation** - Security group-based isolation  
-✅ **Secrets Management** - Secure credential handling  
+✅ **Secrets Management** - Secure credential handling
 
 ### **Production Readiness**
+
 ✅ **High Availability** - Multi-node cluster configuration  
 ✅ **Backup & Recovery** - Database backup strategies  
 ✅ **Monitoring & Logging** - Infrastructure observability  
-✅ **Scalability** - Auto-scaling and load balancing  
+✅ **Scalability** - Auto-scaling and load balancing
 
 ## 🎓 Key Concepts Demonstrated
 
@@ -310,6 +328,7 @@ spec:
 > The following examples are taken directly from this repository's code and configuration.
 
 ### **1. Infrastructure as Code (IaC)**
+
 ```hcl
 # Declarative infrastructure definition
 resource "exoscale_sks_cluster" "k8s_cluster" {
@@ -321,6 +340,7 @@ resource "exoscale_sks_cluster" "k8s_cluster" {
 **Learning Outcome**: Understanding how to define infrastructure declaratively rather than manually.
 
 ### **2. Cloud-Native Architecture**
+
 ```hcl
 # Managed services integration
 resource "exoscale_dbaas" "postgresql" {
@@ -332,6 +352,7 @@ resource "exoscale_dbaas" "postgresql" {
 **Learning Outcome**: Leveraging cloud-native managed services for operational efficiency.
 
 ### **3. Security-First Design**
+
 ```hcl
 # Zero-trust network policies
 resource "exoscale_security_group_rule" "sks_internal_tcp" {
@@ -345,6 +366,7 @@ resource "exoscale_security_group_rule" "sks_internal_tcp" {
 **Learning Outcome**: Implementing security at every layer of the infrastructure.
 
 ### **4. Multi-Tenancy Patterns**
+
 ```yaml
 # Namespace-based tenant isolation
 apiVersion: v1
@@ -365,6 +387,7 @@ metadata:
 ### **Common Infrastructure Issues**
 
 #### **1. Terraform State Issues**
+
 ```bash
 # Check Terraform state
 terraform show
@@ -377,6 +400,7 @@ terraform import exoscale_sks_cluster.k8s_cluster <cluster-id>
 ```
 
 #### **2. Kubernetes Cluster Access**
+
 ```bash
 # Verify cluster connectivity
 kubectl cluster-info
@@ -389,6 +413,7 @@ kubectl get events --sort-by='.lastTimestamp'
 ```
 
 #### **3. Database Connection Issues**
+
 ```bash
 # Check database status
 terraform output -json
@@ -399,6 +424,7 @@ kubectl run test-db --image=postgres:15 --rm -it -- \
 ```
 
 #### **4. Security Group Configuration**
+
 ```bash
 # List security groups
 exo compute security-group list
@@ -408,6 +434,7 @@ exo compute security-group show <security-group-id>
 ```
 
 ### **Debugging Commands**
+
 ```bash
 # Infrastructure status
 terraform plan
@@ -428,17 +455,20 @@ kubectl get networkpolicies -A
 > Use these resources to deepen your understanding of cloud infrastructure and GitOps best practices.
 
 ### **Official Documentation**
+
 - [Terraform Documentation](https://www.terraform.io/docs)
 - [Exoscale Documentation](https://www.exoscale.com/documentation/)
 - [Kubernetes Documentation](https://kubernetes.io/docs/)
 - [Helm Documentation](https://helm.sh/docs/)
 
 ### **Learning Resources**
+
 - [Infrastructure as Code: Managing Servers in the Cloud](https://www.oreilly.com/library/view/infrastructure-as-code/9781491924334/)
 - [Kubernetes: Up and Running](https://www.oreilly.com/library/view/kubernetes-up-and/9781492046523/)
 - [Terraform: Up & Running](https://www.oreilly.com/library/view/terraform-up-running/9781491977071/)
 
 ### **Related Repositories**
+
 - **[INENPT-G1-Code](https://github.com/MCCE2024/INENPT-G1-Code)**: Application source code and CI/CD
 - **[INENPT-G1-Argo](https://github.com/MCCE2024/INENPT-G1-Argo)**: GitOps deployment and ArgoCD configuration
 
@@ -450,14 +480,16 @@ kubectl get networkpolicies -A
 > This section is designed to help professors quickly assess whether all course requirements and learning objectives have been met.
 
 ### **Learning Objectives Met**
+
 ✅ **Infrastructure as Code**: Complete Terraform implementation  
 ✅ **Cloud Computing**: Exoscale Cloud platform mastery  
 ✅ **Container Orchestration**: Kubernetes cluster management  
 ✅ **Multi-tenancy**: Namespace isolation and resource management  
 ✅ **Security**: Zero-trust network policies and secrets management  
-✅ **Automation**: Fully automated infrastructure provisioning  
+✅ **Automation**: Fully automated infrastructure provisioning
 
 ### **Technical Competencies Demonstrated**
+
 - **Terraform/OpenTofu**: Advanced infrastructure provisioning
 - **Kubernetes**: Production-grade cluster configuration
 - **Cloud Security**: Security groups and network policies
@@ -466,6 +498,7 @@ kubectl get networkpolicies -A
 - **GitOps Integration**: Infrastructure ready for ArgoCD deployment
 
 ### **Course Requirements Satisfaction**
+
 - ✅ **3+ Services**: API, Consumer, Producer services
 - ✅ **OAuth2 Authentication**: GitHub OAuth integration
 - ✅ **Multi-tenancy**: Complete tenant isolation
@@ -481,4 +514,4 @@ kubectl get networkpolicies -A
 
 ---
 
-*This repository is part of a comprehensive 3-repository GitOps strategy demonstrating modern cloud computing principles and production-ready infrastructure management.*
+_This repository is part of a comprehensive 3-repository GitOps strategy demonstrating modern cloud computing principles and production-ready infrastructure management._
