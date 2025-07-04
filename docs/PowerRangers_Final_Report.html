@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Rangers DevOps - Final Report</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            padding: 36px 32px 32px 32px;
+            border: 2px solid #e94560;
+        }
+        h1, h2, h3 {
+            font-family: 'Orbitron', monospace;
+            color: #e94560;
+            margin-top: 0;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 0.2em;
+            text-shadow: 2px 2px 8px #000;
+        }
+        h2 {
+            font-size: 1.4em;
+            margin-top: 2em;
+        }
+        .ranger-badge {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            border-radius: 8px;
+            padding: 2px 10px;
+            font-size: 1em;
+            font-family: 'Orbitron', monospace;
+            margin-right: 8px;
+            box-shadow: 0 2px 8px #e94560;
+        }
+        .repo-summary {
+            margin-bottom: 1.5em;
+            padding: 1em;
+            border-left: 5px solid #e94560;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 8px;
+            box-shadow: 0 2px 12px 0 rgba(233, 69, 96, 0.13);
+        }
+        .repo-link {
+            display: inline-block;
+            background: #f1c40f;
+            color: #222;
+            border-radius: 8px;
+            padding: 0.4em 1em;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.08em;
+            font-weight: bold;
+            margin: 0.5em 0 0.5em 0;
+            border: 2px solid #e94560;
+            text-decoration: none;
+            box-shadow: 0 2px 8px #f1c40f;
+            transition: background 0.2s, color 0.2s;
+        }
+        .repo-link:hover {
+            background: #e94560;
+            color: #fff;
+        }
+        ul {
+            margin: 0.5em 0 1.5em 1.5em;
+        }
+        .improvements {
+            background: #fff;
+            color: #222;
+            border-left: 6px solid #f1c40f;
+            border-radius: 8px;
+            padding: 1em 1.5em;
+            margin-bottom: 2em;
+            box-shadow: 0 2px 8px 0 rgba(233, 69, 96, 0.10);
+        }
+        .footer {
+            text-align: center;
+            color: #f1c40f;
+            font-size: 1em;
+            margin-top: 2em;
+            font-family: 'Orbitron', monospace;
+            text-shadow: 1px 1px 4px #000;
+        }
+        @media print {
+            body {
+                background: #fff !important;
+                color: #222 !important;
+            }
+            .container {
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0.5in 0.5in 0.5in 0.5in !important;
+                background: #fff !important;
+            }
+            .repo-summary, .improvements {
+                background: #fff !important;
+                color: #222 !important;
+                border-color: #e94560 !important;
+            }
+            .ranger-badge {
+                background: #e94560 !important;
+                color: #fff !important;
+            }
+            a, .repo-link {
+                color: #222 !important;
+                background: #fff !important;
+                border-color: #e94560 !important;
+                text-decoration: underline !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Power Rangers DevOps<br>Final Report</h1>
+        <p style="text-align:center;font-size:1.15em;margin-bottom:2em;">
+            This report summarizes our <strong>Power Rangers DevOps</strong> project, as presented in our interactive Power Rangers–themed presentation.<br>
+            For the full experience, see <em>Gruppe01_Präsi.html</em> in the docs folder.
+        </p>
+        <h2>Project Overview</h2>
+        <p>
+            The Power Rangers DevOps project demonstrates a modern, production-grade, multi-tenant cloud-native platform using a <strong>three-repository strategy</strong>:
+        </p>
+        <div class="repo-summary">
+            <span class="ranger-badge">📦 INENPT-G1-Code</span><br>
+            <strong>Role:</strong> Application Zord<br>
+            <strong>Summary:</strong> Contains all microservice source code (API, Consumer, Producer) and CI/CD workflows. Builds and pushes Docker images to the GitHub Container Registry (GHCR). The README details the build process, integration with the other repos, and future improvements such as a multi-tenant proxy and automated tag updates.<br>
+            <a class="repo-link" href="https://github.com/MCCE2024/INENPT-G1-Code" target="_blank">View on GitHub</a>
+        </div>
+        <div class="repo-summary">
+            <span class="ranger-badge">🏗️ INENPT-G1-K8s</span><br>
+            <strong>Role:</strong> Kubernetes & Infra Zord<br>
+            <strong>Summary:</strong> Provides Infrastructure as Code using OpenTofu (or Terraform) to provision a managed Kubernetes cluster and PostgreSQL database on Exoscale. The README explains the IaC setup, security considerations, and integration with the application and GitOps repos. Future improvements include secure DB IP filtering.<br>
+            <a class="repo-link" href="https://github.com/MCCE2024/INENPT-G1-K8s" target="_blank">View on GitHub</a>
+        </div>
+        <div class="repo-summary">
+            <span class="ranger-badge">⚡ INENPT-G1-Argo</span><br>
+            <strong>Role:</strong> GitOps Zord<br>
+            <strong>Summary:</strong> Hosts all GitOps automation: ArgoCD ApplicationSets, Helm charts, and Sealed Secrets for secure, automated, multi-tenant deployment. The README covers the GitOps flow, integration, and planned enhancements like ApplicationSet templating and tag update automation.<br>
+            <a class="repo-link" href="https://github.com/MCCE2024/INENPT-G1-Argo" target="_blank">View on GitHub</a>
+        </div>
+        <h2>Possible Improvements</h2>
+        <div class="improvements">
+            <ul>
+                <li><strong>ArgoCD GitHub Action for ApplicationSet Templates</strong> (INENPT-G1-Argo): Automate ApplicationSet YAML generation for new tenants/services.</li>
+                <li><strong>GitHub Action for Tag Update</strong> (INENPT-G1-Code & INENPT-G1-Argo): Automatically update image tags in GitOps repo after a successful build.</li>
+                <li><strong>Secure Database IP Filtering</strong> (INENPT-G1-K8s): Restrict DB access to the cluster or specific CIDRs for enhanced security.</li>
+                <li><strong>Proxy for Request Forwarding & JWT Generation</strong> (INENPT-G1-Code): Route requests to the correct namespace and generate JWTs for secure multi-tenancy.</li>
+            </ul>
+            <p><em>All improvements are viable and align with best practices for automation, security, and scalability.</em></p>
+        </div>
+        <h2>Conclusion</h2>
+        <p>
+            The Power Rangers DevOps project exemplifies teamwork, modern cloud-native design, and a commitment to continuous improvement. With clear repo separation, strong automation, and a focus on security and scalability, this platform is ready to morph and grow with any organization's needs.<br>
+            <strong>Go Go Power Rangers DevOps!</strong>
+        </p>
+        <div class="footer">
+            <span>Team Gruppe 1 &mdash; INEN PT &mdash; July 2025</span><br>
+            <span>Harald, Susanne, Patrick</span>
+        </div>
+    </div>
+</body>
+</html>
