@@ -7,7 +7,7 @@ exoscale_zone       = "at-vie-1"
 project_name = "inenpt-g1"
 
 # Kubernetes Configuration
-kubernetes_version = "1.32.5"
+kubernetes_version = "1.32.6"
 node_pool_size     = 3
 instance_type      = "standard.medium"
 disk_size          = 50

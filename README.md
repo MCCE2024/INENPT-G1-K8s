@@ -181,56 +181,29 @@ cp infrastructure/terraform.tfvars.example infrastructure/terraform.tfvars
 Run the following commands from the `infrastructure/` directory:
 
 ```bash
-# Check Terraform state
-terraform show
-
-# Refresh state if needed
-terraform refresh
-
-# Import existing resources
-terraform import exoscale_sks_cluster.k8s_cluster <cluster-id>
-```
-
-#### **2. Kubernetes Cluster Access**
-
 cd infrastructure
+
 tofu init   # or 'terraform init' if using Terraform
+
 tofu plan
+
 tofu apply
+
 ```
 
 ### 3. Cluster Access
 
-After provisioning, retrieve your Kubernetes cluster credentials using the Exoscale CLI:
-
+Be sure that exoscale-cli is installed
 ```bash
-exo compute sks kubeconfig <cluster-name> --zone <zone> --group system:masters --user admin
-kubectl get nodes
+exo version
 
-# View cluster events
-kubectl get events --sort-by='.lastTimestamp'
+# if it is not installed here for wsl/linux
+curl -fsSL https://raw.githubusercontent.com/exoscale/cli/master/install-latest.sh | sh
 ```
 
-#### **3. Database Connection Issues**
-
-```bash
-# Check database status
-terraform output -json
-
-# Test database connectivity
-kubectl run test-db --image=postgres:15 --rm -it -- \
-    psql -h <db-host> -U <username> -d <database>
-```
-
-#### **4. Security Group Configuration**
-
-```bash
-# List security groups
-exo compute security-group list
-
-# Check security group rules
-exo compute security-group show <security-group-id>
-```
+> [!NOTE] Next steps
+> Continue with Argo Readme.md:
+> https://github.com/MCCE2024/INENPT-G1-Argo
 
 ### **Debugging Commands**
 
