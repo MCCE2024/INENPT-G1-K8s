@@ -7,23 +7,13 @@ exoscale_zone       = "at-vie-1"
 project_name = "inenpt-g1"
 
 # Kubernetes Configuration
-kubernetes_version = "1.28"
+kubernetes_version = "1.32.5"
 node_pool_size     = 3
 instance_type      = "standard.medium"
 disk_size          = 50
 
 # PostgreSQL Configuration
-postgresql_plan = "startup-4"
-
-# GitHub OAuth Configuration
-github_oauth_client_id     = "your-github-oauth-client-id"
-github_oauth_client_secret = "your-github-oauth-client-secret"
-github_org                = "your-github-organization"
+postgresql_plan = "hobbyist-2"
 
 # Container Registry
 container_registry = "ghcr.io"
-
-# ArgoCD Repository Configuration
-argocd_repo_url      = "https://github.com/your-org/application-repo"
-argocd_repo_username = "your-github-username"
-argocd_repo_password = "your-github-token" 

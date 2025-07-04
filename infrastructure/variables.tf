@@ -25,7 +25,7 @@ variable "project_name" {
 variable "kubernetes_version" {
   description = "Kubernetes version for SKS cluster"
   type        = string
-  default     = "1.32.5"
+  default     = "1.32.6"
 }
 
 variable "node_pool_size" {
@@ -52,41 +52,8 @@ variable "postgresql_plan" {
   default     = "Hobbyist 2"
 }
 
-variable "github_oauth_client_id" {
-  description = "GitHub OAuth Client ID"
-  type        = string
-}
-
-variable "github_oauth_client_secret" {
-  description = "GitHub OAuth Client Secret"
-  type        = string
-  sensitive   = true
-}
-
-variable "github_org" {
-  description = "GitHub organization for OAuth"
-  type        = string
-  default     = "your-github-org"
-}
-
 variable "container_registry" {
   description = "Container registry URL"
   type        = string
   default     = "ghcr.io"
 }
-
-variable "argocd_repo_url" {
-  description = "ArgoCD repository URL for application manifests"
-  type        = string
-}
-
-variable "argocd_repo_username" {
-  description = "ArgoCD repository username"
-  type        = string
-}
-
-variable "argocd_repo_password" {
-  description = "ArgoCD repository password/token"
-  type        = string
-  sensitive   = true
-} 
